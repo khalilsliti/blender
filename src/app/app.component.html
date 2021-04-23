@@ -1,23 +1,23 @@
-<header class="h-100">
+<header class="h-100 mb-2">
   <!-- Navigation-->
   <nav>
   <mdb-navbar SideClass="navbar fixed-top navbar-expand-lg navbar-dark indigo scrolling-navbar intro-fixed-nav" [containerInside]="false">
       <mdb-navbar-brand>
-          <a class="logo navbar-brand" href="#"><mdb-icon class="fa-lg" title="Order and blend ." fas icon="blender-phone"></mdb-icon></a>
+          <a class="logo navbar-brand" href="/"><mdb-icon class="fa-lg" title="Order and blend ." fas icon="blender-phone"></mdb-icon></a>
       </mdb-navbar-brand>
       <links>
           <ul class="navbar-nav mr-auto">
               <li class="nav-item active waves-light" mdbWavesEffect>
-                  <a class="nav-link">Home <span class="sr-only">(current)</span></a>
+                  <a class="nav-link" routerLink="/" >Home <span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item waves-light" mdbWavesEffect>
-                  <a class="nav-link">Products</a>
+                  <a class="nav-link" routerLink="products" >Products</a>
               </li>
               <li class="nav-item waves-light" mdbWavesEffect>
-                  <a class="nav-link">Stores</a>
+                  <a class="nav-link"  routerLink="stores" >Stores</a>
               </li>
               <li class="nav-item waves-light" mdbWavesEffect>
-                <a class="nav-link">Contact us</a>
+                <a class="nav-link"  routerLink="contact">Contact us</a>
             </li>
               
           </ul>
@@ -75,7 +75,7 @@ Some Text ...
 
             
             <li class="nav-item waves-light" mdbWavesEffect>
-              <a class="nav-link">Log in / Signup</a>
+              <a class="nav-link">Sign in</a>
           </li>
 
           </ul>
@@ -117,7 +117,7 @@ Some Text ...
         <form class="input-group">
           <input type="text" class="form-control form-control-sm" placeholder="Your email" aria-label="Your email" aria-describedby="basic-addon2">
           <div class="input-group-append">
-            <button mdbBtn color="white" outline="true" size="sm" type="button" mdbWavesEffect>Sign up</button>
+            <button mdbBtn color="white" outline="true" size="sm" type="button" mdbWavesEffect>Subscribe</button>
           </div>
         </form>
       </div>
@@ -166,7 +166,7 @@ Some Text ...
 
   <!-- Copyright -->
   <div class="footer-copyright text-center py-3">© 2021 Copyright:
-    <a href="#"> Blender</a>
+    <a href="/"> Blender</a>
   </div>
   <!-- Copyright -->
 
