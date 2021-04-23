@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { FormsModule } from '@angular/forms';
 import {RouterModule , Router} from '@angular/router';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import {RouterModule , Router} from '@angular/router';
     BrowserAnimationsModule,
     MDBBootstrapModule.forRoot(),
     FormsModule,
-    RouterModule 
+    RouterModule,
+    AppRoutingModule 
   ],
   providers: [],
   bootstrap: [AppComponent]
