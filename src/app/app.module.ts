@@ -10,11 +10,19 @@ import { FormsModule } from '@angular/forms';
 import {RouterModule , Router} from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './components/home/home.component';
+import { ProductsListComponent } from './components/products-list/products-list.component';
+import { StoresListComponent } from './components/stores-list/stores-list.component';
+import { ContactUsComponent } from './components/contact-us/contact-us.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    ProductsListComponent,
+    StoresListComponent,
+    ContactUsComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
