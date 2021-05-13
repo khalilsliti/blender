@@ -14,6 +14,10 @@ import { ProductsListComponent } from './components/products-list/products-list.
 import { StoresListComponent } from './components/stores-list/stores-list.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { ProductItemComponent } from './product-item/product-item.component';
+import { StoreItemComponent } from './components/store-item/store-item.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +26,11 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     ProductsListComponent,
     StoresListComponent,
     ContactUsComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    NavbarComponent,
+    FooterComponent,
+    ProductItemComponent,
+    StoreItemComponent
   ],
   imports: [
     BrowserModule,
