@@ -20,7 +20,9 @@ export class ProductsListComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((params)=>
     {
-      this.pageNumber=params['pageNumber']
+      if (params['pageNumber'])
+      {this.pageNumber=params['pageNumber']}
+      
       this.productsservice.getProducts(this.pageNumber).subscribe(
         (response)=>{this.products=response;console.log(this.products)},
         (error)=>{console.log(error)},
