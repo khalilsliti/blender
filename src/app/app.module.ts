@@ -18,6 +18,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ProductItemComponent } from './product-item/product-item.component';
 import { StoreItemComponent } from './components/store-item/store-item.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,9 @@ import { StoreItemComponent } from './components/store-item/store-item.component
     MDBBootstrapModule.forRoot(),
     FormsModule,
     RouterModule,
-    AppRoutingModule 
+    AppRoutingModule ,
+    BrowserModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

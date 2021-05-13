@@ -76,7 +76,19 @@
               </div>
   
       </div>
+
       
     
   </section>
-  
+  <nav class="mt-3" aria-label="...">
+    <ul class="pagination pagination-lg justify-content-center">
+      <li   class="page-item" >
+        <a  class="page-link"   aria-disabled="true"  (click)="previousPage()">Previous</a>
+      </li>
+      <li class="page-item">
+          <a class="page-link" >{{pageNumber}}</a></li>
+      <li class="page-item"  (click)="nextPage()">
+        <a class="page-link" >Next</a>
+      </li>
+    </ul>
+</nav>
