@@ -1,0 +1,73 @@
+<!--Section: Block Content-->
+
+<div class="container ">
+<section class="mb-5">
+
+    <div class="row">
+      <div class="col-md-6 mb-4 mb-md-0">
+  
+        <div id="mdb-lightbox-ui"></div>
+  
+        <div class="mdb-lightbox">
+  
+          <div class="row product-gallery mx-1">
+  
+            <div class="col-12 mb-0">
+              <figure class="view overlay rounded z-depth-1 main-img">
+                  <img [src]="imgPath"
+                    class="img-fluid z-depth-1">
+              </figure>
+            </div>
+          </div>
+  
+        </div>
+  
+      </div>
+      <div class="col-md-6">
+  
+        <strong><h5> {{ label }}</h5></strong>
+        <p><span class="mr-1"><strong><span>Price : </span>{{ unitPrice }}DT</strong></span></p>
+        <p class="pt-1">{{ detail }}</p>
+        <div class="table-responsive">
+          <table class="table table-sm table-borderless mb-0">
+            <tbody>
+              <tr>
+                <th class="pl-0 w-25" scope="row"><strong>Store</strong></th>
+                <td>{{ store.name }}</td>
+              </tr>
+              <tr>
+                <th class="pl-0 w-25" scope="row"><strong>Address</strong></th>
+                <td>{{ store.address.street  }} , {{ store.address.governorate}} {{ store.address.city }}</td>
+              </tr>
+              <tr>
+                <th class="pl-0 w-25" scope="row" [ngClass]="{ 'available': available , 'notAvailable' : !available }"><strong>{{ available }}</strong></th>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <hr>
+        <div class="table-responsive mb-2">
+          <table class="table table-sm table-borderless">
+            <tbody>
+              <tr>
+                <td class="pl-0 pb-0 w-25">Quantity</td>
+              </tr>
+              <tr>
+                <td class="pl-0">
+                  <div class="def-number-input number-input safari_only mb-0">
+                    <input class="quantity" min="0" name="quantity" value="1" type="number">
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <button type="button" class="btn btn-primary btn-md mr-1 mb-2">Buy now</button>
+        <button type="button" class="btn btn-light btn-md mr-1 mb-2"><i
+            class="fas fa-shopping-cart pr-2"></i>Add to cart</button>
+      </div>
+    </div>
+  
+  </section>
+  <!--Section: Block Content-->
+</div>

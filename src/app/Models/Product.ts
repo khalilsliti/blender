@@ -1,27 +1,18 @@
+import { productType } from "./product.model";
 
 export class Product {
-    label:String;
-    store:String; //for the moment
-    quantity:Number;
-    imgPath:String;
-    unit:String; 
-    unitPrice:Number;
-    detail :String
-    keywords :String[];
-    createdAt:Date ; 
-    categories: String[] ; 
-    orders: String //for the moment
-  constructor(label: string ,store: string ,quantity : number ,imgPath : string ,unit: string  ,unitPrice : number ,detail : string ,keywords : string[] ,categories: string[]  )
+    product : productType ; 
+  constructor(date : productType  )
   {
-    this.label= label ;
-    this.store=store;
-    this.quantity=quantity;
-    this.imgPath=imgPath;
-    this.unit=unit;
-    this.unitPrice=unitPrice;
-    this.detail=detail;
-    this.keywords=keywords;
-    this.categories=categories;
+    this.product.label= date.label ;
+    this.product.store= date.store;
+    this.product.quantity= date.quantity;
+    this.product.imgPath= date.imgPath;
+    this.product.unit = date.unit;
+    this.product.unitPrice= date.unitPrice;
+    this.product.detail= date.detail;
+    this.product.keywords= date.keywords;
+    this.product.categories= date.categories;
     
   }
 }

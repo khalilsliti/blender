@@ -1,4 +1,5 @@
 import { Component, OnInit , Input} from '@angular/core';
+import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 import { productType } from 'src/app/Models/product.model';
 
 @Component({
@@ -8,15 +9,20 @@ import { productType } from 'src/app/Models/product.model';
 })
 export class ProductItemComponent implements OnInit {
   URL: string =  "http://127.0.0.1:3000/" ; 
- @Input() object : productType  ; 
- unit : string ; 
+ @Input() product : productType  ; 
  imgPath : string ;
  stockStatus : string ;   
-  constructor() { }
+  constructor(private route:Router, 
+              private activateRoute : ActivatedRoute )
+               {}
 
   ngOnInit(): void { 
-     this.imgPath = this.URL + this.object.imgPath ;
-     this.stockStatus = +this.object.quantity > 0 ? "In Stock" : "Sold Out " ;  
+     this.imgPath = this.URL + this.product.imgPath ;
+     this.stockStatus = +this.product.quantity > 0 ? "In Stock" : "Sold Out " ;  
   }
-
+  viewItem() 
+  {
+    const navigationExtras: NavigationExtras  = {state: this.product }; 
+     this.route.navigate(["/product-information",this.product.label] ,  navigationExtras ) ; 
+  }
 }

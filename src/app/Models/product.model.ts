@@ -1,7 +1,9 @@
+import { Store } from "./Store.model";
+
 export interface productType {
     _id : string , 
     unitPrice : number , 
-    store : string , /**/ 
+    store : Store , /**/ 
     quantity : number , 
     orders : string , /**/
     label : string , 
@@ -9,5 +11,6 @@ export interface productType {
     imgPath : string , 
     detail : string , 
     createdAt : string , 
-    categories: []  
+    categories: []  , 
+    unit: string 
 }

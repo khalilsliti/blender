@@ -1,16 +1,14 @@
 <div class="card">
      
   <img
-    src="https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(67).jpg"
-    class="card-img-top"
+    [src]="imgPath"
+    class="card-img-top  view zoom overlay z-depth-2 "
   />
 
 <div class="card-body">
-  <h5 class="card-title">Card title</h5>
+  <h5 class="card-title">{{ store.name }}</h5>
   <p class="card-text">
-    Some quick example text to build on the card title and make up the bulk of the
-    card's content.
+     {{ store.address.street }}
   </p>
-  <a  class="btn btn-primary  waves-effect" mdbWavesEffect>Button</a>
 </div>
 </div> 

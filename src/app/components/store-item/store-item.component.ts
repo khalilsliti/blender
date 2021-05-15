@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Store } from 'src/app/Models/Store.model';
 
 @Component({
   selector: 'app-store-item',
@@ -6,10 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./store-item.component.scss']
 })
 export class StoreItemComponent implements OnInit {
-
+ @Input() store : Store ;   
+ URL: string =  "http://127.0.0.1:3000/" ; 
+ imgPath : string ;   
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit(): void { 
+     this.imgPath = this.URL + this.store.imgPath ;
   }
 
 }

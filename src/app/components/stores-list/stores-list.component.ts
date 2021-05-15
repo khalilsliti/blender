@@ -9,30 +9,38 @@ import { StoresService } from 'src/app/services/stores.service';
   styleUrls: ['./stores-list.component.scss']
 })
 export class StoresListComponent implements OnInit {
-  pageNumber:number=1
-  stores:Array<Store>
+  pageNumber:number ; 
+  stores:Array<Store>; 
+  disableNext : boolean ; 
   constructor(
     private storesservice:StoresService,
     private activatedRoute:ActivatedRoute,
     private router:Router) { }
 
   ngOnInit(): void {
-    this.activatedRoute.params.subscribe((params)=>
+    this.activatedRoute.params.subscribe( params =>
     {
-      if (params['pageNumber'])
-      {this.pageNumber=params['pageNumber']}
-      
+     
+      this.pageNumber=params['pageNumber'] ; 
       this.storesservice.getStores(this.pageNumber).subscribe(
-        (response)=>{this.stores=response;console.log(this.stores)},
-        (error)=>{console.log(error)},
+        (response : Store[]) =>
+        {
+          this.stores=response;
+          this.disableNext = this.stores.length != 10 ? true : false ;
+          console.log(this.stores); 
+        },
+        error => 
+        {
+          this.router.navigate(["/404"]);  
+        }  
+        ,
       )
     })
   }
   nextPage()
   {
     this.pageNumber++;
-    const link=['stores',this.pageNumber]
-    this.router.navigate(link)
+    this.router.navigate(['/stores',this.pageNumber]) ; 
   }
   previousPage()
   {
@@ -40,8 +48,7 @@ export class StoresListComponent implements OnInit {
     {
       this.pageNumber--;
     }
-    const link=['stores',this.pageNumber]
-    this.router.navigate(link)
+    this.router.navigate(['/stores', this.pageNumber] );  
   }
 
 }

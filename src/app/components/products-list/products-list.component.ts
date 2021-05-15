@@ -27,6 +27,7 @@ export class ProductsListComponent implements OnInit {
         {
           this.products=response ; 
           this.disableNext = this.products.length != 10 ? true : false ; 
+          console.log(response) ; 
         },
         () =>
         {
@@ -40,8 +41,7 @@ export class ProductsListComponent implements OnInit {
   nextPage()
   {
     this.pageNumber++;
-    const link=['products',this.pageNumber]
-    this.router.navigate(link);
+    this.router.navigate(['products',this.pageNumber]);
   }
   previousPage()
   {
@@ -49,7 +49,6 @@ export class ProductsListComponent implements OnInit {
     {
       this.pageNumber--;
     }
-    const link=['products',this.pageNumber]
-    this.router.navigate(link); 
+    this.router.navigate(['products',this.pageNumber]); 
   }
 }

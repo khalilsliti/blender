@@ -2,12 +2,12 @@
      
   <img
     [src]="imgPath"
-    class="card-img-top"
+    class="card-img-top view zoom overlay z-depth-2"
   />
 
 <div class="card-body">
-  <h5 class="card-title">{{ object.label }}</h5>
-  <a  class="btn btn-primary  waves-effect" mdbWavesEffect>Button</a>
+  <h5 class="card-title">{{ product.label }}</h5>
+  <a  class="btn btn-primary  waves-effect" (click)="viewItem()"mdbWavesEffect>View</a>
 </div>
 <div class="card-footer text-muted text-center mt-4">
   {{ stockStatus }}
