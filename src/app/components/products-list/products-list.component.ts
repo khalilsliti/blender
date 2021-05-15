@@ -11,13 +11,13 @@ import { ProductsService } from 'src/app/services/products.service';
 export class ProductsListComponent implements OnInit {
   pageNumber: number ; 
   products:Array<productType>
-  disableNext : boolean ; 
+  disableNext : boolean ;  
   constructor(private productsservice:ProductsService,
               private activatedRoute:ActivatedRoute,
               private router:Router
     
     ){}
-
+   
   ngOnInit(): void {
     this.activatedRoute.params.subscribe( params =>
     {    
@@ -26,7 +26,7 @@ export class ProductsListComponent implements OnInit {
         (response : productType[]) =>
         {
           this.products=response ; 
-          this.disableNext = this.products.length != 10 ? true : false ; 
+          this.disableNext = this.products.length < 12 ? true : false ; 
           console.log(response) ; 
         },
         () =>
@@ -34,8 +34,7 @@ export class ProductsListComponent implements OnInit {
           this.router.navigate(["/404"]) ; 
         }
       )
-    });
-    
+    });  
   }
  
   nextPage()
@@ -45,7 +44,7 @@ export class ProductsListComponent implements OnInit {
   }
   previousPage()
   {
-    if (this.pageNumber>=1)
+    if (this.pageNumber >= 1)
     {
       this.pageNumber--;
     }

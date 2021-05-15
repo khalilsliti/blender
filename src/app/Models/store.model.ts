@@ -1,5 +1,5 @@
-import { Product } from "./Product";
-export interface Store {
+import { productType } from "./product.model";
+export class Store {
          address :  {
                     city : string , 
                     governorate : string , 
@@ -7,11 +7,11 @@ export interface Store {
                     postalCode : number , 
                     street : string 
                     }
-          categories : [] , 
-          createdAt : string , 
-          imgPath : string , 
-          keywords : [] , 
-          name : string , 
-          owner : string[] /* for the moment */
-          products : Product[] 
+          categories : [] ; 
+          createdAt : string ;  
+          imgPath : string ;  
+          keywords : [] ; 
+          name : string ; 
+          owner : string[] ;   /* for the moment */
+          products : productType[] 
 }

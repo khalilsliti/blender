@@ -19,7 +19,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { ProductItemComponent } from './components/product-item/product-item.component';
 import { StoreItemComponent } from './components/store-item/store-item.component';
 import { HttpClientModule } from '@angular/common/http';
-import { ProductInfomationComponent } from './components/product-item/ProductInformation/product-infomation/product-infomation.component';
+import { ProductInfomationComponent } from './components/product-infomation/product-infomation.component';
 
 @NgModule({
   declarations: [
