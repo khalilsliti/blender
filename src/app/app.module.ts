@@ -16,7 +16,7 @@ import { ContactUsComponent } from './components/contact-us/contact-us.component
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { ProductItemComponent } from './product-item/product-item.component';
+import { ProductItemComponent } from './components/product-item/product-item.component';
 import { StoreItemComponent } from './components/store-item/store-item.component';
 import { HttpClientModule } from '@angular/common/http';
 

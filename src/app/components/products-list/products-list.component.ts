@@ -1,6 +1,6 @@
+import { ThrowStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Product } from 'src/app/Models/Product';
 import { ProductsService } from 'src/app/services/products.service';
 
 @Component({
@@ -9,25 +9,32 @@ import { ProductsService } from 'src/app/services/products.service';
   styleUrls: ['./products-list.component.scss']
 })
 export class ProductsListComponent implements OnInit {
-  pageNumber:number=1
-  products:Array<Product>
+  pageNumber: number ; 
+  products:Array<any>
+  disableNext : boolean ; 
   constructor(private productsservice:ProductsService,
               private activatedRoute:ActivatedRoute,
               private router:Router
     
-    ) { }
+    ){}
 
   ngOnInit(): void {
-    this.activatedRoute.params.subscribe((params)=>
-    {
-      if (params['pageNumber'])
-      {this.pageNumber=params['pageNumber']}
-      
+    this.activatedRoute.params.subscribe( params =>
+    {    
+      this.pageNumber=params['pageNumber']
       this.productsservice.getProducts(this.pageNumber).subscribe(
-        (response)=>{this.products=response;console.log(this.products)},
-        (error)=>{console.log(error)},
+        response =>
+        {
+          this.products=response ; 
+          this.disableNext = this.products.length != 10 ? true : false ; 
+    
+        },
+        error =>
+        {
+          console.log(error)
+        }
       )
-    })
+    });
     
   }
  
@@ -35,17 +42,15 @@ export class ProductsListComponent implements OnInit {
   {
     this.pageNumber++;
     const link=['products',this.pageNumber]
-    this.router.navigate(link)
+    this.router.navigate(link);
   }
   previousPage()
   {
-    if (this.pageNumber>1)
+    if (this.pageNumber>=1)
     {
       this.pageNumber--;
     }
     const link=['products',this.pageNumber]
-    this.router.navigate(link)
+    this.router.navigate(link); 
   }
-
-
 }
