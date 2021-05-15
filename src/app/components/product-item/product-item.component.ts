@@ -1,4 +1,5 @@
 import { Component, OnInit , Input} from '@angular/core';
+import { productType } from 'src/app/Models/product.model';
 
 @Component({
   selector: 'app-product-item',
@@ -7,7 +8,7 @@ import { Component, OnInit , Input} from '@angular/core';
 })
 export class ProductItemComponent implements OnInit {
   URL: string =  "http://127.0.0.1:3000/" ; 
- @Input() object ; 
+ @Input() object : productType  ; 
  unit : string ; 
  imgPath : string ;
  stockStatus : string ;   

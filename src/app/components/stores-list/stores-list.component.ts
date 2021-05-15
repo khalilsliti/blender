@@ -10,6 +10,7 @@ export class StoresListComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    
   }
 
 }

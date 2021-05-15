@@ -1,6 +1,6 @@
-import { ThrowStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { productType } from 'src/app/Models/product.model';
 import { ProductsService } from 'src/app/services/products.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { ProductsService } from 'src/app/services/products.service';
 })
 export class ProductsListComponent implements OnInit {
   pageNumber: number ; 
-  products:Array<any>
+  products:Array<productType>
   disableNext : boolean ; 
   constructor(private productsservice:ProductsService,
               private activatedRoute:ActivatedRoute,
@@ -23,15 +23,14 @@ export class ProductsListComponent implements OnInit {
     {    
       this.pageNumber=params['pageNumber']
       this.productsservice.getProducts(this.pageNumber).subscribe(
-        response =>
+        (response : productType[]) =>
         {
           this.products=response ; 
           this.disableNext = this.products.length != 10 ? true : false ; 
-    
         },
-        error =>
+        () =>
         {
-          console.log(error)
+          this.router.navigate(["/404"]) ; 
         }
       )
     });
