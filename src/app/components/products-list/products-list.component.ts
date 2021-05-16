@@ -1,3 +1,4 @@
+import {pairwise} from 'rxjs/internal/operators';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { productType } from 'src/app/Models/product.model';
@@ -9,6 +10,7 @@ import { ProductsService } from 'src/app/services/products.service';
   styleUrls: ['./products-list.component.scss']
 })
 export class ProductsListComponent implements OnInit {
+  searchText:string
   pageNumber: number ; 
   products:Array<productType>
   disableNext : boolean ;  
@@ -16,7 +18,9 @@ export class ProductsListComponent implements OnInit {
               private activatedRoute:ActivatedRoute,
               private router:Router
     
-    ){}
+    ){
+   
+    }
    
   ngOnInit(): void {
     this.activatedRoute.params.subscribe( params =>
@@ -25,9 +29,11 @@ export class ProductsListComponent implements OnInit {
       this.productsservice.getProducts(this.pageNumber).subscribe(
         (response : productType[]) =>
         {
+         
           this.products=response ; 
           this.disableNext = this.products.length < 12 ? true : false ; 
           console.log(response) ; 
+          
         },
         () =>
         {
