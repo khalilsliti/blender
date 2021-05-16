@@ -9,6 +9,7 @@ import { StoresService } from 'src/app/services/stores.service';
   styleUrls: ['./stores-list.component.scss']
 })
 export class StoresListComponent implements OnInit {
+  searchText:string;
   pageNumber:number ; 
   stores:Array<Store>; 
   disableNext : boolean ; 
