@@ -16,6 +16,13 @@ export class StoreItemComponent implements OnInit {
   ngOnInit(): void { 
      this.imgPath = this.URL + this.store.imgPath ;
   }
+
+  viewProducts() 
+  {
+    const navigationExtras: NavigationExtras  = { state: this.store }; 
+     this.router.navigate(["/products"] ,  navigationExtras ) ; 
+     console.log( navigationExtras ) ; 
+  }
   
 
 }

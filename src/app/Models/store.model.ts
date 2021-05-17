@@ -1,5 +1,6 @@
 import { productType } from "./product.model";
 export class Store {
+         _id : string ; 
          address :  {
                     city : string , 
                     governorate : string , 

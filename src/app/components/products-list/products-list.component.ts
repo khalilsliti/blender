@@ -1,8 +1,9 @@
 import {pairwise} from 'rxjs/internal/operators';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 import { productType } from 'src/app/Models/product.model';
 import { ProductsService } from 'src/app/services/products.service';
+import { Store } from 'src/app/Models/Store.model';
 
 @Component({
   selector: 'app-products-list',
@@ -10,29 +11,48 @@ import { ProductsService } from 'src/app/services/products.service';
   styleUrls: ['./products-list.component.scss']
 })
 export class ProductsListComponent implements OnInit {
-  searchText:string
+  storeId = null  ;
+  store : Store ; 
+  searchText:string; 
   pageNumber: number ; 
   products:Array<productType>
-  disableNext : boolean ;  
+  disableNext : boolean  = false ;  
   constructor(private productsservice:ProductsService,
               private activatedRoute:ActivatedRoute,
-              private router:Router
-    
-    ){
-   
+              private router:Router)
+    {
+      const navigation = this.router.getCurrentNavigation();
+      const state = navigation.extras.state as Store; 
+      this.store = state ; 
+       if ( state )
+       {
+      this.storeId = state._id  ;
+      console.log(this.storeId) ; 
+    } 
     }
    
   ngOnInit(): void {
+  
     this.activatedRoute.params.subscribe( params =>
     {    
       this.pageNumber=params['pageNumber']
       this.productsservice.getProducts(this.pageNumber).subscribe(
         (response : productType[]) =>
         {
-         
-          this.products=response ; 
-          this.disableNext = this.products.length < 12 ? true : false ; 
-          console.log(response) ; 
+          if( this.storeId )
+          {
+            this.products = response ; 
+            this.products =  this.products.filter( product  => 
+            {  
+               return this.storeId == product.store._id ;  
+            }) ; 
+          }else 
+          {
+            this.products = response ; 
+             
+          }
+          // this.disableNext = this.products.length < 12 ? true : false ; 
+          console.log(response);
           
         },
         () =>
@@ -46,7 +66,12 @@ export class ProductsListComponent implements OnInit {
   nextPage()
   {
     this.pageNumber++;
-    this.router.navigate(['products',this.pageNumber]);
+    if ( this.storeId ) 
+    {
+     const navigationExtras: NavigationExtras  = { state: this.store }; 
+     this.router.navigate(["/products",this.pageNumber] ,  navigationExtras ) ;    
+    }else 
+    this.router.navigate(['products',this.pageNumber]);  
   }
   previousPage()
   {
@@ -54,6 +79,11 @@ export class ProductsListComponent implements OnInit {
     {
       this.pageNumber--;
     }
+    if ( this.storeId ) 
+    {
+     const navigationExtras: NavigationExtras  = { state: this.store }; 
+     this.router.navigate(["/products",this.pageNumber] ,  navigationExtras ) ;    
+    }else 
     this.router.navigate(['products',this.pageNumber]); 
   }
 }
