@@ -1,0 +1,28 @@
+
+              <form  [formGroup]="signInForm" (ngSubmit) = 'onSubmit()'>
+            
+                
+                  <!--  Username input -->
+    
+                      <div class="form-outline w-75  mb-2" style="margin-left: auto;margin-right: auto;" >
+                        <!-- Username input -->
+                  <input type="text"  aria-label="Username" name="username"   formControlName = "username" class="form-control" placeholder="Username" required>  
+                  <div *ngIf="username.invalid && username.dirty && username.errors?.maxlength"
+                  class="alert alert-danger">
+                      Username must not exceed 15 characters .
+                  </div>        
+                  </div>
+
+                  <!-- Password input  -->
+                  <div class="form-outline w-75 mb-2" style="margin-left: auto;margin-right: auto;" >
+                    <input type="password"   aria-label="password" name="password" formControlName = "password" class="form-control" placeholder="Password" required />
+                    <div *ngIf="password.invalid  && password.dirty && password.errors?.minlength || password.errors?.maxlength  "
+                    class="alert alert-danger">
+                        Password must be 8-16 characters long  .
+                    </div>        
+                  </div>
+
+                <!-- Submit button -->
+                <button type="submit" [disabled] = "signInForm.invalid" class="btn btn-primary btn-block mb-1 w-75" style="margin-left: auto;margin-right: auto;">Sign in</button>
+
+              </form>

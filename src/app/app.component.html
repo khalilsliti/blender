@@ -75,7 +75,7 @@ Some Text ...
 
             
             <li class="nav-item waves-light" mdbWavesEffect>
-              <a class="nav-link">Sign in</a>
+              <a class="nav-link" data-toggle="modal" data-target="#signInModal">Sign in</a>
           </li>
 
           </ul>
@@ -91,6 +91,9 @@ Some Text ...
 
 <!--Main Layout-->
 <main class="text-center  py-5">
+
+<app-signin-modal modalId="signInModal"></app-signin-modal>
+
 <router-outlet></router-outlet>
   <!-- Main Content -->
 
