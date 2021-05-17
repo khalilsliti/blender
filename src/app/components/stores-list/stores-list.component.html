@@ -5,10 +5,13 @@
     <h2 class="h1 font-weight-bold text-center h1 py-5">Stores</h2>
     <!--Section description-->
     <p class="grey-text pb-5">You can find in this section all the stores that we deal with</p>
+    <div class="search">
+      <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="Search for products by their name">
+    </div>
     <!--Grid row-->
     <div class="row">
       <!--Grid column-->
-      <div *ngFor=" let store of stores"class="col-lg-3 col-md-12 mb-3">
+      <div *ngFor=" let store of stores | filter:searchText" class="col-lg-3 col-md-12 mb-3">
         <!--Card-->
       <app-store-item [store]="store"></app-store-item>
         <!--Card-->
