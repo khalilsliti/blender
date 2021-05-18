@@ -20,6 +20,7 @@ import { ProductItemComponent } from './components/product-item/product-item.com
 import { StoreItemComponent } from './components/store-item/store-item.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductInfomationComponent } from './components/product-infomation/product-infomation.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { ProductInfomationComponent } from './components/product-infomation/prod
     FooterComponent,
     ProductItemComponent,
     StoreItemComponent,
-    ProductInfomationComponent
+    ProductInfomationComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
