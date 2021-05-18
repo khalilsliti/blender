@@ -2,7 +2,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { Ng2SearchPipeModule } from 'ng2-search-filter'
 import { AppComponent } from './app.component';
 
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
@@ -44,6 +44,8 @@ import { ProductInfomationComponent } from './components/product-infomation/prod
     AppRoutingModule ,
     BrowserModule,
     HttpClientModule,
+    Ng2SearchPipeModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

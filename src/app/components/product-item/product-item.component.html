@@ -7,12 +7,16 @@
 
 <div class="card-body">
   <h5 class="card-title">{{ product.label }}</h5>
-  <p class="card-text text-danger font-weight-bold">
+  <p class="card-text text-danger font-weight-bold">{{stockStatus}}</p>
+  <p class="card-text text-primary font-weight-bold">
     {{ product.unitPrice }}DT
   </p>
-  <a  class="btn btn-primary  waves-effect" (click)="viewItem()"mdbWavesEffect>View</a>
+ 
 </div>
 <div class="card-footer text-muted text-center mt-4">
-  {{ stockStatus }}
+  <a  class="btn btn-primary  waves-effect" (click)="viewItem()"mdbWavesEffect>View</a>
+  
 </div>
 </div> 
+
+

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 import { Store } from 'src/app/Models/Store.model';
 import { StoresService } from 'src/app/services/stores.service';
 
@@ -9,6 +9,7 @@ import { StoresService } from 'src/app/services/stores.service';
   styleUrls: ['./stores-list.component.scss']
 })
 export class StoresListComponent implements OnInit {
+  searchText:string;
   pageNumber:number ; 
   stores:Array<Store>; 
   disableNext : boolean ; 
@@ -50,5 +51,7 @@ export class StoresListComponent implements OnInit {
     }
     this.router.navigate(['/stores', this.pageNumber] );  
   }
+
+
 
 }
