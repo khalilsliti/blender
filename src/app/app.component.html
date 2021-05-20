@@ -1,5 +1,10 @@
-<app-navbar>
-</app-navbar>
+
+
+
+<header class="h-100 mb-2">
+  <app-navbar>
+  </app-navbar>
+</header>
 
 
   <!-- /.Main -->
@@ -8,10 +13,11 @@
 <main class="text-center  py-5">
 
 <app-signin-modal modalId="signInModal"></app-signin-modal>
-
+<!-- Main Content -->
 <router-outlet></router-outlet>
-  <!-- Main Content -->
+  
 </main>
-<!--Main Layout-->
-<app-footer></app-footer>
-
+<!--Footer-->
+<footer class="page-footer font-small blue pt-4">
+  <app-footer></app-footer>
+</footer>
