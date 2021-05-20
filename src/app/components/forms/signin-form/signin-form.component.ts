@@ -53,7 +53,7 @@ export class SigninFormComponent implements OnInit {
               case 403 : msg = 'You are already logged in .' ; break;
               
               default : 
-                      msg = 'Something went wrong';
+                      msg = 'Something went wrong .';
           } 
       
           swal.fire('' , msg , 'error');
