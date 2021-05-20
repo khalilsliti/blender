@@ -25,6 +25,7 @@ import { SigninFormComponent } from './components/forms/signin-form/signin-form.
 import { RegisterFormComponent } from './components/forms/register-form/register-form.component';
 import {AuthInterceptor} from './helpers/http-interceptors/AuthInterceptor';
 
+import { ProfileComponent } from './components/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import {AuthInterceptor} from './helpers/http-interceptors/AuthInterceptor';
     ProductInfomationComponent,
     SigninModalComponent,
     SigninFormComponent,
-    RegisterFormComponent
+    RegisterFormComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
