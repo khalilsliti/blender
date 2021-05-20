@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { User } from 'src/app/models/User';
+import { AuthService } from 'src/app/services/auth.service';
 import { UserService } from 'src/app/services/httpClients/user.service';
 import swal from 'sweetalert2';
 
@@ -14,7 +15,7 @@ export class SigninFormComponent implements OnInit {
 
   public signInForm : FormGroup;
 
-  constructor(private fb:FormBuilder , private http : UserService) { }
+  constructor(private fb:FormBuilder , private http : UserService , private auth : AuthService ) { }
 
   ngOnInit(): void {
     this.signInForm = this.fb.group({
@@ -43,7 +44,17 @@ export class SigninFormComponent implements OnInit {
 
 
     this.http.login(user).subscribe(
-      () => swal.fire('' , 'Logged in successfully  .' , 'success') , err => {
+      () => { 
+        
+        this.auth.authenticate();
+
+        swal.fire('' , 'Logged in successfully  .' , 'success')
+        
+      }
+      
+      ,
+      
+      err => {
 
         let msg : string ;
         switch ( err.status )

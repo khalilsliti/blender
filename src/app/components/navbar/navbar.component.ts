@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
 import { UserService } from 'src/app/services/httpClients/user.service';
 import Swal from 'sweetalert2';
 
@@ -9,15 +10,31 @@ import Swal from 'sweetalert2';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor( private http : UserService ) { }
+  constructor( private http : UserService , private auth : AuthService ) { }
 
-  ngOnInit(): void {
+ 
+
+  public isAuth : boolean ;
+
+  ngOnInit() {
+    this.auth.authChannel$.subscribe( val =>
+      this.isAuth = val
+    );
   }
+
 
   onLogout() {
 
     this.http.logout().subscribe(
-      () => Swal.fire('' , 'Logged out successfully  .' , 'success') , err => {
+      () => {
+        
+        this.auth.deauthenticate();
+        
+        Swal.fire('' , 'Logged out successfully  .' , 'success') 
+        
+      }
+
+      , err => {
 
         let msg : string ;
         switch ( err.status )
