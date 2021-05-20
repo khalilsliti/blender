@@ -18,6 +18,7 @@ export class AuthService {
   public deauthenticate() {
     localStorage.removeItem('isAuth');
     this._authChannel$.next(false);
+    
   }
 
   public isAuth() {

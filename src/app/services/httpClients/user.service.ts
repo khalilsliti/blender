@@ -11,7 +11,6 @@ const API = {
 };
 
 const OPTIONS : any = {
-  withCredentials : true ,
    observe : 'response'
 };
 
