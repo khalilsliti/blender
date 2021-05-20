@@ -23,6 +23,7 @@ import { ProductInfomationComponent } from './components/product-infomation/prod
 import { SigninModalComponent } from './components/signin-modal/signin-modal.component';
 import { SigninFormComponent } from './components/forms/signin-form/signin-form.component';
 import { RegisterFormComponent } from './components/forms/register-form/register-form.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { RegisterFormComponent } from './components/forms/register-form/register
     ProductInfomationComponent,
     SigninModalComponent,
     SigninFormComponent,
-    RegisterFormComponent
+    RegisterFormComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

@@ -7,7 +7,9 @@ const BACKEND_URL = 'http://127.0.0.1:3000';
 const API = {
   login : `${BACKEND_URL}/users/login` ,
   logout : `${BACKEND_URL}/users/loout` ,
-  register : `${BACKEND_URL}/users/register`
+  register : `${BACKEND_URL}/users/register`,
+  update: `${BACKEND_URL}/users`,
+  get: `${BACKEND_URL}/users`,
 };
 
 const OPTIONS : any = {
@@ -37,7 +39,10 @@ export class UserService {
 
   }
 
-  
+  public getuser = () =>
+  {
+    return this.http.get<User>(API.get, OPTIONS);
+  }
  
 
 
@@ -70,4 +75,41 @@ export class UserService {
     return this.http.post<User>(API.register,formData , OPTIONS );
 
   }
+
+
+
+
+  public update = (data : User) => {
+
+    let formData = new FormData();
+
+    for( let key in data) {
+      
+      if ( data[key] && key !== 'repassword' )
+      {
+        if( data[key] instanceof Object && key !== 'img') 
+          {
+            for (let nestedKey in data[key]) {
+              if( data[key][nestedKey] )
+                {
+                  formData.append(`${key}.${nestedKey}` , data[key][nestedKey]);
+                }
+            }
+          }
+          else
+          {
+            formData.append(`${key}` , data[key]);
+          }
+      }
+        
+    }
+
+  
+    return this.http.put<User>(API.update,formData , OPTIONS );
+
+  }
 }
+
+
+
+
