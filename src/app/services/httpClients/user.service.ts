@@ -6,12 +6,11 @@ import { User } from 'src/app/models/User';
 const BACKEND_URL = 'http://127.0.0.1:3000';
 const API = {
   login : `${BACKEND_URL}/users/login` ,
-  logout : `${BACKEND_URL}/users/loout` ,
+  logout : `${BACKEND_URL}/users/logout` ,
   register : `${BACKEND_URL}/users/register`
 };
 
 const OPTIONS : any = {
-  withCredentials : true ,
    observe : 'response'
 };
 
@@ -26,7 +25,7 @@ export class UserService {
 
 
   public logout = () => {
-    return this.http.post(API.logout,OPTIONS);
+    return this.http.post(API.logout,{},OPTIONS);
   }
 
   

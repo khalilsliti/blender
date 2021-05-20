@@ -5,7 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Ng2SearchPipeModule } from 'ng2-search-filter'
 import { AppComponent } from './app.component';
 
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MDBBootstrapModule} from 'angular-bootstrap-md';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {RouterModule , Router} from '@angular/router';
@@ -23,6 +23,8 @@ import { ProductInfomationComponent } from './components/product-infomation/prod
 import { SigninModalComponent } from './components/signin-modal/signin-modal.component';
 import { SigninFormComponent } from './components/forms/signin-form/signin-form.component';
 import { RegisterFormComponent } from './components/forms/register-form/register-form.component';
+import {AuthInterceptor} from './helpers/http-interceptors/AuthInterceptor';
+
 
 @NgModule({
   declarations: [
@@ -55,7 +57,7 @@ import { RegisterFormComponent } from './components/forms/register-form/register
     HttpClientModule  
   
   ],
-  providers: [],
+  providers: [    { provide: HTTP_INTERCEPTORS , useClass: AuthInterceptor , multi: true }  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
