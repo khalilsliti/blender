@@ -24,7 +24,6 @@ import { SigninModalComponent } from './components/signin-modal/signin-modal.com
 import { SigninFormComponent } from './components/forms/signin-form/signin-form.component';
 import { RegisterFormComponent } from './components/forms/register-form/register-form.component';
 import {AuthInterceptor} from './helpers/http-interceptors/AuthInterceptor';
-
 import { ProfileComponent } from './components/profile/profile.component';
 
 @NgModule({
