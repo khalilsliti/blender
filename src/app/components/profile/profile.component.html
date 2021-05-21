@@ -1,478 +1,186 @@
-<div class="container light-style flex-grow-1 container-p-y">
-    <div class="card overflow-hidden">
-      <div class="row no-gutters row-bordered row-border-light">
-        <div class="col-md-3 pt-0">
-          <div class="list-group list-group-flush account-settings-links">
-            <a class="list-group-item list-group-item-action active" data-toggle="list" >General</a>
-            <a class="list-group-item list-group-item-action" data-toggle="list" >Change password</a>
-            <a class="list-group-item list-group-item-action" data-toggle="list" >Info</a>
-            <a class="list-group-item list-group-item-action" data-toggle="list" >Social links</a>
-            <a class="list-group-item list-group-item-action" data-toggle="list">Connections</a>
-            <a class="list-group-item list-group-item-action" data-toggle="list">Notifications</a>
-          </div>
-        </div>
-        <div class="col-md-9">
-          <div class="tab-content">
-            <div class="tab-pane fade active show" id="account-general">
-
-              <div class="card-body media align-items-center">
-                <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" class="d-block ui-w-80">
-                <div class="media-body ml-4">
-                  <label class="btn btn-outline-primary">
-                    Upload new photo
-                    <input type="file" class="account-settings-fileinput">
-                  </label> &nbsp;
-                  <button type="button" class="btn btn-default md-btn-flat">Reset</button>
-
-                  <div class="text-light small mt-1">Allowed JPG, GIF or PNG. Max size of 800K</div>
-                </div>
-              </div>
-              <hr class="border-light m-0">
-
-              <div class="card-body">
-                <div class="form-group">
-                  <label class="form-label">Username</label>
-                  <input type="text" class="form-control mb-1" value="nmaxwell">
-                </div>
-                <div class="form-group">
-                  <label class="form-label">Name</label>
-                  <input type="text" class="form-control" value="Nelle Maxwell">
-                </div>
-                <div class="form-group">
-                  <label class="form-label">E-mail</label>
-                  <input type="text" class="form-control mb-1" value="nmaxwell@mail.com">
-                </div>
-                <div class="form-group">
-                  <label class="form-label">Company</label>
-                  <input type="text" class="form-control" value="Company Ltd.">
-                </div>
-              </div>
-
-            </div>
-            <div class="tab-pane fade" id="account-change-password">
-              <div class="card-body pb-2">
-
-                <div class="form-group">
-                  <label class="form-label">Current password</label>
-                  <input type="password" class="form-control">
-                </div>
-
-                <div class="form-group">
-                  <label class="form-label">New password</label>
-                  <input type="password" class="form-control">
-                </div>
-
-                <div class="form-group">
-                  <label class="form-label">Repeat new password</label>
-                  <input type="password" class="form-control">
-                </div>
-
-              </div>
-            </div>
-            <div class="tab-pane fade" id="account-info">
-              <div class="card-body pb-2">
-
-                <div class="form-group">
-                  <label class="form-label">Bio</label>
-                  <textarea class="form-control" rows="5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nunc arcu, dignissim sit amet sollicitudin iaculis, vehicula id urna. Sed luctus urna nunc. Donec fermentum, magna sit amet rutrum pretium, turpis dolor molestie diam, ut lacinia diam risus eleifend sapien. Curabitur ac nibh nulla. Maecenas nec augue placerat, viverra tellus non, pulvinar risus.</textarea>
-                </div>
-                <div class="form-group">
-                  <label class="form-label">Birthday</label>
-                  <input type="text" class="form-control" value="May 3, 1995">
-                </div>
-                <div class="form-group">
-                  <label class="form-label">Country</label>
-                  <select class="custom-select">
-                    <option>USA</option>
-                    <option selected="">Canada</option>
-                    <option>UK</option>
-                    <option>Germany</option>
-                    <option>France</option>
-                  </select>
-                </div>
-
-
-              </div>
-              <hr class="border-light m-0">
-              <div class="card-body pb-2">
-
-                <h6 class="mb-4">Contacts</h6>
-                <div class="form-group">
-                  <label class="form-label">Phone</label>
-                  <input type="text" class="form-control" value="+0 (123) 456 7891">
-                </div>
-                <div class="form-group">
-                  <label class="form-label">Website</label>
-                  <input type="text" class="form-control" value="">
-                </div>
-
-              </div>
-      
-            </div>
-            <div class="tab-pane fade" id="account-social-links">
-              <div class="card-body pb-2">
-
-                <div class="form-group">
-                  <label class="form-label">Twitter</label>
-                  <input type="text" class="form-control" value="https://twitter.com/user">
-                </div>
-                <div class="form-group">
-                  <label class="form-label">Facebook</label>
-                  <input type="text" class="form-control" value="https://www.facebook.com/user">
-                </div>
-                <div class="form-group">
-                  <label class="form-label">Google+</label>
-                  <input type="text" class="form-control" value="">
-                </div>
-                <div class="form-group">
-                  <label class="form-label">LinkedIn</label>
-                  <input type="text" class="form-control" value="">
-                </div>
-                <div class="form-group">
-                  <label class="form-label">Instagram</label>
-                  <input type="text" class="form-control" value="https://www.instagram.com/user">
-                </div>
-
-              </div>
-            </div>
-            <div class="tab-pane fade" id="account-connections">
-              <div class="card-body">
-                <button type="button" class="btn btn-twitter">Connect to <strong>Twitter</strong></button>
-              </div>
-              <hr class="border-light m-0">
-              <div class="card-body">
-                <h5 class="mb-2">
-                  <a href="javascript:void(0)" class="float-right text-muted text-tiny"><i class="ion ion-md-close"></i> Remove</a>
-                  <i class="ion ion-logo-google text-google"></i>
-                  You are connected to Google:
-                </h5>
-                nmaxwell@mail.com
-              </div>
-              <hr class="border-light m-0">
-              <div class="card-body">
-                <button type="button" class="btn btn-facebook">Connect to <strong>Facebook</strong></button>
-              </div>
-              <hr class="border-light m-0">
-              <div class="card-body">
-                <button type="button" class="btn btn-instagram">Connect to <strong>Instagram</strong></button>
-              </div>
-            </div>
-            <div class="tab-pane fade" id="account-notifications">
-              <div class="card-body pb-2">
-
-                <h6 class="mb-4">Activity</h6>
-
-                <div class="form-group">
-                  <label class="switcher">
-                    <input type="checkbox" class="switcher-input" checked="">
-                    <span class="switcher-indicator">
-                      <span class="switcher-yes"></span>
-                      <span class="switcher-no"></span>
-                    </span>
-                    <span class="switcher-label">Email me when someone comments on my article</span>
-                  </label>
-                </div>
-                <div class="form-group">
-                  <label class="switcher">
-                    <input type="checkbox" class="switcher-input" checked="">
-                    <span class="switcher-indicator">
-                      <span class="switcher-yes"></span>
-                      <span class="switcher-no"></span>
-                    </span>
-                    <span class="switcher-label">Email me when someone answers on my forum thread</span>
-                  </label>
-                </div>
-                <div class="form-group">
-                  <label class="switcher">
-                    <input type="checkbox" class="switcher-input">
-                    <span class="switcher-indicator">
-                      <span class="switcher-yes"></span>
-                      <span class="switcher-no"></span>
-                    </span>
-                    <span class="switcher-label">Email me when someone follows me</span>
-                  </label>
-                </div>
-              </div>
-              <hr class="border-light m-0">
-              <div class="card-body pb-2">
-
-                <h6 class="mb-4">Application</h6>
-
-                <div class="form-group">
-                  <label class="switcher">
-                    <input type="checkbox" class="switcher-input" checked="">
-                    <span class="switcher-indicator">
-                      <span class="switcher-yes"></span>
-                      <span class="switcher-no"></span>
-                    </span>
-                    <span class="switcher-label">News and announcements</span>
-                  </label>
-                </div>
-                <div class="form-group">
-                  <label class="switcher">
-                    <input type="checkbox" class="switcher-input">
-                    <span class="switcher-indicator">
-                      <span class="switcher-yes"></span>
-                      <span class="switcher-no"></span>
-                    </span>
-                    <span class="switcher-label">Weekly product updates</span>
-                  </label>
-                </div>
-                <div class="form-group">
-                  <label class="switcher">
-                    <input type="checkbox" class="switcher-input" checked="">
-                    <span class="switcher-indicator">
-                      <span class="switcher-yes"></span>
-                      <span class="switcher-no"></span>
-                    </span>
-                    <span class="switcher-label">Weekly blog digest</span>
-                  </label>
-                </div>
-
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="text-right mt-3">
-      <button type="button" class="btn btn-primary">Save changes</button>&nbsp;
-      <button type="button" class="btn btn-default">Cancel</button>
-    </div>
-
-  </div>
-
 <div class="container ">
     <section class="mb-5">
     
         <div class="row">
-          <div class="col-md-6 mb-4 mb-md-0">
+
       
-            <div id="mdb-lightbox-ui"></div>
+          
+
       
-            <div class="mdb-lightbox">
-      
-              <div class="row product-gallery mx-1">
-      
-                <div class="col-12 mb-0">
+                <div class="col-4 mb-0">
                   <figure class="view overlay rounded z-depth-1 main-img">
                       <img 
-                        class="img-fluid z-depth-1" id="profilepic" src="src">
+                        class="img-fluid z-depth-1" id="profilepic"  [src]="SRC">
                   </figure>
                 </div>
-              </div>
-      
-            </div>
-      
-          </div>
-          <div class="col-md-12">
-      
-            <strong><h5> aaa</h5></strong>
-            <p><span class="mr-1"><strong><span>Price : </span>aaaa</strong></span></p>
-            <p class="pt-1">aaaa</p>
-            <div class="table-responsive">
-              <table class="table table-sm table-borderless mb-0">
-                <tbody>
-                  <tr>
-                    <th class="pl-0 w-25" scope="row"><strong>Store</strong></th>
-                    <td>aaaa</td>
-                  </tr>
-                  <tr>
-                    <th class="pl-0 w-25" scope="row"><strong>Address</strong></th>
-                    <td>aaaa</td>
-                  </tr>
-                  <tr>
-                    <th class="pl-0 w-25" scope="row" ><strong>aaaa</strong></th>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <hr>
-            <div class="table-responsive mb-2">
-              <table class="table table-sm table-borderless">
-                <tbody>
-                  <tr>
-                    <td class="pl-0 pb-0 w-25">Quantity</td>
-                  </tr>
-                  <tr>
-                    <td class="pl-0">
-                      <div class="def-number-input number-input safari_only mb-0">
-                        <input class="quantity" min="0" name="quantity" value="1" type="number">
+                <div class="col">
+                  <form [formGroup]="registerForm" id="registerForm" >
+                
+                    <!-- Full Name input -->
+                    <div class="form-outline mb-2 form-group">
+                    <div class="input-group">
+                        <div class="form-outline w-50">
+                        <input  type="text"  aria-label="first name" name="firstName" formControlName = "firstName"  class="form-control" placeholder="{{ 'first Name : ' + user.firstName }}" required />
+                        <div *ngIf="firstName.invalid && firstName.dirty && firstName.errors?.pattern" class="alert alert-danger ">
+                            Invalid First name .
+                          </div>
+                        </div>
+                        
+                        <div class="form-outline w-50">
+                        <input type="text" aria-label="last name" name="lastName"  formControlName = "lastName"  class="form-control" placeholder="{{ ' Last name : '   +  user.lastName}}" required />
+                        
+                      <div *ngIf="lastName.invalid && lastName.dirty && lastName.errors?.pattern"
+                      class="alert alert-danger">
+                          Invalid Last name .
+                      </div>      
+                        </div>
+                        </div>
+                      
                       </div>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <button type="button" class="btn btn-primary btn-md mr-1 mb-2">Buy now</button>
-            <button type="button" class="btn btn-light btn-md mr-1 mb-2"><i
-                class="fas fa-shopping-cart pr-2"></i>Add to cart</button>
-          </div>
+                 
+                    <!-- Email and Phone input -->
+                    <div class="form-outline mb-2"> 
+                        
+                        <div class="input-group">
+                          <div class="form-outline w-50">
+                            <input type="email" [ngModel]="user.email"  aria-label="email" name="email"  formControlName = "email" class="form-control" placeholder="Email" required >
+                                    
+                            <div *ngIf="email.invalid && email.dirty && email.errors?.email"
+                            class="alert alert-danger">
+                                Invalid email format .
+                            </div>      
+                           </div>
+                            <div class="form-outline w-50">
+                            <input type="number" [ngModel]="user.phone" aria-label="phone number" name="phone"  formControlName = "phone" class="form-control" min="20000000" max="99999999" placeholder="Phone" required>
+                            <div *ngIf="phone.invalid && phone.dirty && phone.errors?.min || phone.errors?.max"
+                            class="alert alert-danger">
+                                Invalid phone number .
+                            </div>        
+                          
+                            </div>
+                          </div>
+                
+                    </div>
+                
+                  
+                      <!-- Role and Username input -->
+                      <div class="form-outline mb-2">
+                          
+                        <div class="input-group">
+                            <div class="form-outline w-50">
+                               <!-- Username input -->
+                        <input type="text" disabled [ngModel]="user.username"  aria-label="Username" name="username"   formControlName = "username" class="form-control" placeholder="Username" required>  
+                        <div *ngIf="username.invalid && username.dirty && username.errors?.maxlength"
+                        class="alert alert-danger">
+                            Username must not exceed 15 characters .
+                        </div>        
+                
+                        </div>
+                        <div class="form-outline w-50">
+                                <select class="form-control"  formControlName = "role" name="role" aria-label="Account role" required>
+                                    <option  [value]="user.role"  selected>{{user.role}}</option>
+                                </select>
+                              </div>
+                       
+                     
+                          </div>
+                          </div>
+                    
+                          <!-- Birth date and File input -->
+                
+                          <div class="form-outline">
+                
+                            <div class="input-group">
+                
+                
+                                   <!-- File input -->
+                                   
+                                   <label for="custom-file"  id="custom-file-label" >Choose image</label>      
+                                   <input type="file"  aria-label="image upload" formControlName="img" accept="image/jpeg" name="img" class="form-control" id="custom-file" style="padding: 0;" (change)="onFileSelect($event)" /> &nbsp;
+                
+                              <!-- Birthdate input-->
+                
+                              <span class="input-group-text">Birth date</span>
+                              <input type="date"  place="birthdate" aria-label="Birth date"  formControlName = "birthDate" class="form-control" placeholder="Birth date"  required>
+                             
+                
+                  </div>
+                            
+                          </div>
+                          <div class="form-outline mb-2  ">
+                          <div class="input-group">
+                            <div class="form-outline w-50">
+                              <div *ngIf="img.invalid && img.dirty && img.errors?.imageNotAcceptable"
+                              class="alert alert-danger">
+                                  Image must have '.jpg' extension and be less than 5 MBs .
+                              </div>        
+                            </div>
+                          <div class="form-outline  w-50">
+                            <div *ngIf="birthDate.invalid && birthDate.dirty && birthDate.errors?.notOldEnough"
+                        class="alert alert-danger">
+                            User must be sixteen years old or older .
+                        </div>        
+                          </div>
+                          </div>
+                </div>
+                
+                          <!-- Adress input -->
+                
+                          <div class="form-outline mb-2">
+                              <div class="input-group" formGroupName="address" >
+                                <div class="form-outline">
+                                    <span class="input-group-text">Address</span>
+                                </div>
+                                <div class="form-outline">
+                                <input type="text" [ngModel]="user.address.governorate"  aria-label="governorate"  name="governorate"  formControlName = "governorate" class="form-control" placeholder="Governorate" required>
+                                <input type="text" [ngModel]="user.address.municipality" aria-label="municipality" name="municipality" formControlName = "municipality" class="form-control" placeholder="Municipality" required> 
+                                </div>
+                                <div class="form-outline">
+                                <input type="text"  [ngModel]="user.address.city" aria-label="city" name="city" formControlName = "city" class="form-control" placeholder="City" required>
+                                <input type="text" [ngModel]="user.address.street"  aria-label="street" name="street" formControlName = "street" class="form-control" placeholder="Street" required>
+                                </div>
+                                <input type="number" [ngModel]="user.address.postalCode" aria-label="postal code" name="postalCode"  formControlName = "postalCode" class="form-control" placeholder="Postal code" required>
+                              </div>
+                            </div>
+                
+                         
+                
+                
+                    <!-- Password input -->
+                     <div class="input-group">
+                        <input type="password"   aria-label="password" name="password" formControlName = "password" class="form-control" placeholder="Password" required />&nbsp;
+                        <input type="password"   aria-label="retype password" name="repassword" formControlName = "repassword" class="form-control" placeholder="Repeat Password" required />
+                    </div>
+                    
+                    <div class="form-outline">
+                      <div *ngIf="password.invalid  && password.dirty && ! registerForm.errors?.passwordsDontMatch && password.errors?.minlength || password.errors?.maxlength  "
+                  class="alert alert-danger">
+                      Password must be 8-16 characters long  .
+                  </div>        
+                    </div>
+                
+                    <div class="form-outline">
+                      <div *ngIf="registerForm.invalid && registerForm.dirty && registerForm.errors?.passwordsDontMatch"
+                  class="alert alert-danger">
+                      Passwords do not match .
+                  </div>        
+                    </div>
+                
+                <br/>
+                
+                    <!-- Submit button -->
+                    <button type="button" (click)="update()" aria-label="registration button" [disabled] = "!registerForm.valid" class="btn btn-primary btn-block mb-1" >Update your informations</button>
+                
+                </form>
+                
+                </div>
+
+      
+       
         </div>
       
       </section>
       
     </div> 
 
-<br>
-<form [formGroup]="registerForm" id="registerForm" >
-                
-    <!-- Full Name input -->
-    <div class="form-outline mb-2 form-group">
-    <div class="input-group">
-        <div class="form-outline w-50">
-        <input  type="text" [ngModel]="user.firstName" aria-label="first name" name="firstName" formControlName = "firstName"  class="form-control" placeholder="First name" required />
-        <div *ngIf="firstName.invalid && firstName.dirty && firstName.errors?.pattern" class="alert alert-danger ">
-            Invalid First name .
-          </div>
-        </div>
-        
-        <div class="form-outline w-50">
-        <input type="text" [ngModel]="user.lastName" aria-label="last name" name="lastName"  formControlName = "lastName"  class="form-control" placeholder="Last name" required />
-        
-      <div *ngIf="lastName.invalid && lastName.dirty && lastName.errors?.pattern"
-      class="alert alert-danger">
-          Invalid Last name .
-      </div>      
-        </div>
-        </div>
-      
-      </div>
- 
-    <!-- Email and Phone input -->
-    <div class="form-outline mb-2"> 
-        
-        <div class="input-group">
-          <div class="form-outline w-50">
-            <input type="email" [ngModel]="user.email"  aria-label="email" name="email"  formControlName = "email" class="form-control" placeholder="Email" required >
-                    
-            <div *ngIf="email.invalid && email.dirty && email.errors?.email"
-            class="alert alert-danger">
-                Invalid email format .
-            </div>      
-           </div>
-            <div class="form-outline w-50">
-            <input type="number" [ngModel]="user.phone" aria-label="phone number" name="phone"  formControlName = "phone" class="form-control" min="20000000" max="99999999" placeholder="Phone" required>
-            <div *ngIf="phone.invalid && phone.dirty && phone.errors?.min || phone.errors?.max"
-            class="alert alert-danger">
-                Invalid phone number .
-            </div>        
-          
-            </div>
-          </div>
 
-    </div>
-
-  
-      <!-- Role and Username input -->
-      <div class="form-outline mb-2">
-          
-        <div class="input-group">
-            <div class="form-outline w-50">
-               <!-- Username input -->
-        <input type="text" disabled [ngModel]="user.username"  aria-label="Username" name="username"   formControlName = "username" class="form-control" placeholder="Username" required>  
-        <div *ngIf="username.invalid && username.dirty && username.errors?.maxlength"
-        class="alert alert-danger">
-            Username must not exceed 15 characters .
-        </div>        
-
-        </div>
-        <div class="form-outline w-50">
-                <select class="form-control"  formControlName = "role" name="role" aria-label="Account role" required>
-                    <option value="none"  selected>{{user.role}}</option>
-                    <option value="customer"  selected>Customer</option>
-                    <option value="owner"  selected>Owner</option>
-                </select>
-              </div>
-       
-     
-          </div>
-          </div>
-    
-          <!-- Birth date and File input -->
-
-          <div class="form-outline">
-
-            <div class="input-group">
-
-
-                   <!-- File input -->
-                   
-                   <label for="custom-file"  id="custom-file-label" >Choose image</label>      
-                   <input type="file"  aria-label="image upload" formControlName="img" accept="image/jpeg" name="img" class="form-control" id="custom-file" style="padding: 0;" (change)="onFileSelect($event)" /> &nbsp;
-
-              <!-- Birthdate input-->
-
-              <span class="input-group-text">Birth date</span>
-              <input type="date"  place="birthdate" aria-label="Birth date"  formControlName = "birthDate" class="form-control" placeholder="Birth date"  required>
-             
-
-  </div>
-            
-          </div>
-          <div class="form-outline mb-2  ">
-          <div class="input-group">
-            <div class="form-outline w-50">
-              <div *ngIf="img.invalid && img.dirty && img.errors?.imageNotAcceptable"
-              class="alert alert-danger">
-                  Image must have '.jpg' extension and be less than 5 MBs .
-              </div>        
-            </div>
-          <div class="form-outline  w-50">
-            <div *ngIf="birthDate.invalid && birthDate.dirty && birthDate.errors?.notOldEnough"
-        class="alert alert-danger">
-            User must be sixteen years old or older .
-        </div>        
-          </div>
-          </div>
-</div>
-
-          <!-- Adress input -->
-
-          <div class="form-outline mb-2">
-              <div class="input-group" formGroupName="address" >
-                <div class="form-outline">
-                    <span class="input-group-text">Address</span>
-                </div>
-                <div class="form-outline">
-                <input type="text" [ngModel]="user.address.governorate"  aria-label="governorate"  name="governorate"  formControlName = "governorate" class="form-control" placeholder="Governorate" required>
-                <input type="text" [ngModel]="user.address.municipality" aria-label="municipality" name="municipality" formControlName = "municipality" class="form-control" placeholder="Municipality" required> 
-                </div>
-                <div class="form-outline">
-                <input type="text"  [ngModel]="user.address.city" aria-label="city" name="city" formControlName = "city" class="form-control" placeholder="City" required>
-                <input type="text" [ngModel]="user.address.street"  aria-label="street" name="street" formControlName = "street" class="form-control" placeholder="Street" required>
-                </div>
-                <input type="number" [ngModel]="user.address.postalCode" aria-label="postal code" name="postalCode"  formControlName = "postalCode" class="form-control" placeholder="Postal code" required>
-              </div>
-            </div>
-
-         
-
-
-    <!-- Password input -->
-     <div class="input-group">
-        <input type="password"   aria-label="password" name="password" formControlName = "password" class="form-control" placeholder="Password" required />&nbsp;
-        <input type="password"   aria-label="retype password" name="repassword" formControlName = "repassword" class="form-control" placeholder="Repeat Password" required />
-    </div>
-    
-    <div class="form-outline">
-      <div *ngIf="password.invalid  && password.dirty && ! registerForm.errors?.passwordsDontMatch && password.errors?.minlength || password.errors?.maxlength  "
-  class="alert alert-danger">
-      Password must be 8-16 characters long  .
-  </div>        
-    </div>
-
-    <div class="form-outline">
-      <div *ngIf="registerForm.invalid && registerForm.dirty && registerForm.errors?.passwordsDontMatch"
-  class="alert alert-danger">
-      Passwords do not match .
-  </div>        
-    </div>
-
-<br/>
-
-    <!-- Submit button -->
-    <button type="button" (click)="update()" aria-label="registration button" [disabled] = "!registerForm.valid" class="btn btn-primary btn-block mb-1" >Update your informations</button>
-
-</form>

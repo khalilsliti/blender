@@ -17,14 +17,14 @@ import { HttpResponse } from '@angular/common/http';
 })
 export class ProfileComponent implements OnInit {
 
-
-  user:User
+  public URL : String = "http://127.0.0.1:3000/" ;  
+  public user:User
   public image : File ;
   private  APLHA_PATTERN :RegExp = /^[a-z]*$/i ;
   private  ROLE_PATTERN :RegExp = /(^owner$)|(^customer$)/;
   public registerForm : FormGroup ;
-  birthdate:String
-  src:String
+  birthdate:String ; 
+  public SRC : String ; 
 
   constructor(private fb:FormBuilder , private http : UserService) { }
 
@@ -32,11 +32,12 @@ export class ProfileComponent implements OnInit {
    this.http.getuser().subscribe((response:HttpResponse<User>)=>
     {
       this.user=response.body[0];
-      
-     this.birthdate=this.user.birthDate.toString().substr(0, 10)
-      },
-      (error)=>
-      {console.log(error)}
+      console.log(this.user.imgPath) ; 
+      this.SRC = `${this.URL}${this.user.imgPath}`  ;  
+      }, error=>
+      {
+        console.log(error) ; 
+      }
     
     );
     
@@ -138,8 +139,24 @@ export class ProfileComponent implements OnInit {
     }).then((result) => {
       if (result.isConfirmed) {
         this.http.update(user).subscribe(
-          () => {swal.fire('' , 'User updated successfully .' , 'success'),
-                  console.log(user)},     
+          () => {
+            this.http.getuser().subscribe((response:HttpResponse<User>)=>
+            {
+              this.user=response.body[0];
+              console.log(this.user.imgPath) ; 
+              this.SRC = `${this.URL}${this.user.imgPath}`  ;  
+              }, error=>
+              {
+                console.log(error) ; 
+              }
+
+    );
+            swal.fire('' , 'User updated successfully .' , 'success'); 
+            
+             }
+                  
+                  
+                  ,     
            err => {
              
              let msg : string ;
