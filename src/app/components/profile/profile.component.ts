@@ -8,6 +8,9 @@ import { imageValidator } from 'src/app/validators/image-validator';
 import { UserService } from 'src/app/services/httpClients/user.service';
 import swal from 'sweetalert2';
 import { HttpResponse } from '@angular/common/http';
+import { Route, Router } from '@angular/router';
+import { governorateValidatorUpdate } from 'src/app/validators/governorate-validator-update';
+import { passwordValidatorUpdate } from 'src/app/validators/password-validator-update';
 
 
 @Component({
@@ -32,37 +35,32 @@ export class ProfileComponent implements OnInit {
    this.http.getuser().subscribe((response:HttpResponse<User>)=>
     {
       this.user=response.body[0];
-      console.log(this.user.imgPath) ; 
       this.SRC = `${this.URL}${this.user.imgPath}`  ;  
-      }, error=>
-      {
-        console.log(error) ; 
-      }
-    
-    );
+      });
     
     this.registerForm = this.fb.group({
 
-      firstName : new FormControl('',[Validators.required , Validators.pattern(this.APLHA_PATTERN) ]) ,
-      lastName :  new FormControl('',[Validators.required , Validators.pattern(this.APLHA_PATTERN) ]) ,
-      email :  new FormControl('',[Validators.required , Validators.email]) ,
+      firstName : new FormControl('',[Validators.pattern(this.APLHA_PATTERN) ]) ,
+      lastName :  new FormControl('',[Validators.pattern(this.APLHA_PATTERN) ]) ,
+      email :  new FormControl('',[ Validators.email]) ,
       address :  this.fb.group(
         {
-          governorate : new FormControl('',[Validators.required , governorateValidator ]) ,
-          municipality :  new FormControl('',[Validators.required ,Validators.pattern(this.APLHA_PATTERN) ]) ,
-          city :  new FormControl('',[Validators.required , Validators.pattern(this.APLHA_PATTERN) ]) ,
-          street :  new FormControl('',[Validators.required , Validators.pattern(this.APLHA_PATTERN) ]) ,
-          postalCode :  new FormControl('',[Validators.required , Validators.min(1000) , Validators.max(9999)]) ,
+          governorate : new FormControl('',[governorateValidatorUpdate]) ,
+          municipality :  new FormControl('',[Validators.pattern(this.APLHA_PATTERN) ]) ,
+          city :  new FormControl('',[ Validators.pattern(this.APLHA_PATTERN) ]) ,
+          street :  new FormControl('',[ Validators.pattern(this.APLHA_PATTERN) ]) ,
+          postalCode :  new FormControl('',[ Validators.min(1000) , Validators.max(9999)]) ,
         }) ,
         
-      username : new FormControl('',[Validators.required , Validators.maxLength(15)]) ,
-      password : new FormControl('',[Validators.required , Validators.minLength(8) , Validators.maxLength(16)]) ,
-      repassword : new FormControl('',[Validators.required , Validators.minLength(8) , Validators.maxLength(16)]) ,
-      birthDate : new FormControl('',[Validators.required , pgValidator]) ,
-      role : new FormControl('none',[Validators.required , Validators.pattern(this.ROLE_PATTERN) ]) ,
-      phone : new FormControl('',[Validators.required ,  Validators.min(20000000) , Validators.max(99999999)]) ,
+      username : new FormControl('',[ Validators.maxLength(15)]) ,
+      password : new FormControl('',[ Validators.minLength(8) , Validators.maxLength(16)]) ,
+      newPassword : new FormControl('',[ Validators.minLength(8) , Validators.maxLength(16)]) ,
+      repassword : new FormControl('',[ Validators.minLength(8) , Validators.maxLength(16)]) ,
+      birthDate : new FormControl('',[pgValidator]) ,
+      role : new FormControl('',[ Validators.pattern(this.ROLE_PATTERN) ]) ,
+      phone : new FormControl('',[  Validators.min(20000000) , Validators.max(99999999)]) ,
       img : new FormControl('',[])
-    } , { validators : [passwordValidator]});
+    } , { validators : [passwordValidatorUpdate]});
     
 
   }
@@ -109,6 +107,10 @@ export class ProfileComponent implements OnInit {
   get img() {
     return this.registerForm.get('img');
   }
+  get newPassword() 
+  {
+     return this.registerForm.get("newPassword"); 
+  }
 
 
   public onFileSelect(event) {
@@ -118,14 +120,40 @@ export class ProfileComponent implements OnInit {
     this.img.updateValueAndValidity();
 
   }
+  public delete() 
+  {
+    swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to Connect as User Again !",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, save it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.http.deleteAccount().subscribe(
+          () => {
+            swal.fire('' , 'User Deleted successfully .' , 'success'); 
+               },     
+           err => {
+             let msg : string ;
+             switch ( err.status )
+               {
+                   case  400 : case 401 : msg = err.error.error && err.error.error.message || 'Invalid input .';break;
+                   default : 
+                           msg = 'Something went wrong';
+               } 
+               swal.fire('' , msg , 'error');
+          }
+        );
+      }
+    })   
+  }
+
 
   public update() {
-   
-    if ( this.registerForm.invalid )
-      return alert('Please review your data .');
-
     const user : User = this.registerForm.value;
-
     user.img = this.image;
 
     swal.fire({
@@ -140,36 +168,17 @@ export class ProfileComponent implements OnInit {
       if (result.isConfirmed) {
         this.http.update(user).subscribe(
           () => {
-            this.http.getuser().subscribe((response:HttpResponse<User>)=>
-            {
-              this.user=response.body[0];
-              console.log(this.user.imgPath) ; 
-              this.SRC = `${this.URL}${this.user.imgPath}`  ;  
-              }, error=>
-              {
-                console.log(error) ; 
-              }
-
-    );
             swal.fire('' , 'User updated successfully .' , 'success'); 
-            
-             }
-                  
-                  
-                  ,     
+               },     
            err => {
-             
              let msg : string ;
              switch ( err.status )
                {
-                   
-                   case  400 : case 401 : msg = err.error.error && err.error.error.message || 'Invalid input .';break;
-                   case 403 : msg = 'You are already logged in .' ; break;
-                   
+                   case  400 : case 401 : case 500:   msg = err.error.error && err.error.error.message || 'Invalid input .';break;
+                   case 406 : msg = "You don't have updated Values "; break; 
                    default : 
                            msg = 'Something went wrong';
                } 
-           
                swal.fire('' , msg , 'error');
           }
         );

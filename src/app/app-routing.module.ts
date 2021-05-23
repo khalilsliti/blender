@@ -7,6 +7,7 @@ import { ProductInfomationComponent } from './components/product-infomation/prod
 import { ProductsListComponent } from './components/products-list/products-list.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { StoresListComponent } from './components/stores-list/stores-list.component';
+import { authGuard } from './services/routeGaurd/routeGuardProfile.service';
 
 
 const routes: Routes = [
@@ -17,7 +18,7 @@ const routes: Routes = [
  {path:"stores/:pageNumber" , component:StoresListComponent} ,
  {path:"stores" , redirectTo: "stores/0", pathMatch:"full"},
  {path:"contact" , component:ContactUsComponent} ,
- {path:"profile" , component:ProfileComponent} ,
+ {path:"profile" , component:ProfileComponent,canActivate:[authGuard]} ,
  {path:"404" , component:NotFoundComponent} ,
  {path:"" , redirectTo:"/home" , pathMatch:"full"} ,
  {path:"**" , redirectTo:"/404"}
