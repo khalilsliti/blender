@@ -21,7 +21,7 @@ export class SigninFormComponent implements OnInit {
     this.signInForm = this.fb.group({
 
      username : new FormControl('',[Validators.required , Validators.maxLength(15)]) ,
-      password : new FormControl('',[Validators.required , Validators.minLength(8) , Validators.maxLength(16)]) ,
+      password : new FormControl('',[Validators.required , Validators.minLength(8) , Validators.maxLength(16)]) 
      
     });
   }

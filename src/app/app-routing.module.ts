@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AddProductComponent } from './components/add-product/add-product.component';
+import { AddStoreComponent } from './components/add-store/add-store.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
+import { OwnerDashboardComponent } from './components/dashboards/owner-dashboard/owner-dashboard.component';
 import { HomeComponent } from './components/home/home.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { ProductInfomationComponent } from './components/product-infomation/product-infomation.component';
@@ -19,6 +22,12 @@ const routes: Routes = [
  {path:"stores" , redirectTo: "stores/0", pathMatch:"full"},
  {path:"contact" , component:ContactUsComponent} ,
  {path:"profile" , component:ProfileComponent,canActivate:[authGuard]} ,
+ {path:"owner-dashboard", component:OwnerDashboardComponent,canActivate:[authGuard] , 
+    children:[
+      {path:"add-product", component:AddProductComponent, canActivate:[authGuard] } ,
+      {path:"create-store" , component:AddStoreComponent, canActivate:[authGuard] } ,    
+    ] 
+} ,
  {path:"404" , component:NotFoundComponent} ,
  {path:"" , redirectTo:"/home" , pathMatch:"full"} ,
  {path:"**" , redirectTo:"/404"}

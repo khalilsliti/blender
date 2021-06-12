@@ -6,8 +6,9 @@ export class productType {
     quantity : number ; 
     orders : string ; /**/
     label : string ;
+    img: File ; 
     keywords : string[] ; 
-    imgPath : string ; 
+    imgPath? : string ; 
     detail : string ;
     createdAt : string ; 
     categories: []  ;

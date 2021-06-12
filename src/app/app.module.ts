@@ -25,6 +25,10 @@ import { SigninFormComponent } from './components/forms/signin-form/signin-form.
 import { RegisterFormComponent } from './components/forms/register-form/register-form.component';
 import {AuthInterceptor} from './helpers/http-interceptors/AuthInterceptor';
 import { ProfileComponent } from './components/profile/profile.component';
+import { OwnerDashboardComponent } from './components/dashboards/owner-dashboard/owner-dashboard.component';
+import { UserDashboardComponent } from './components/dashboards/user-dashboard/user-dashboard.component';
+import { AddStoreComponent } from './components/add-store/add-store.component';
+import { AddProductComponent } from './components/add-product/add-product.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +46,11 @@ import { ProfileComponent } from './components/profile/profile.component';
     SigninModalComponent,
     SigninFormComponent,
     RegisterFormComponent,
-    ProfileComponent
+    ProfileComponent,
+    OwnerDashboardComponent,
+    UserDashboardComponent,
+    AddStoreComponent,
+    AddProductComponent
   ],
   imports: [
     BrowserModule,

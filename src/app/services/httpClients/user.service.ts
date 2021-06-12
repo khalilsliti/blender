@@ -43,8 +43,6 @@ export class UserService {
   {
     return this.http.get<User>(API.get, OPTIONS);
   }
- 
-
 
 
   public register = (data : User) => {
