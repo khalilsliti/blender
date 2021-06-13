@@ -30,6 +30,7 @@ import { UserDashboardComponent } from './components/dashboards/user-dashboard/u
 import { AddStoreComponent } from './components/add-store/add-store.component';
 import { AddProductComponent } from './components/add-product/add-product.component';
 import { EditProductComponent } from './components/edit-product/edit-product.component';
+import { EditStoreComponent } from './components/edit-store/edit-store.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { EditProductComponent } from './components/edit-product/edit-product.com
     AddStoreComponent,
     AddProductComponent,
     EditProductComponent,
+    EditStoreComponent,
 
   ],
   imports: [

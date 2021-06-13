@@ -14,5 +14,6 @@ export class Store {
           keywords : [] ; 
           name : string ; 
           owner : string[] ;   /* for the moment */
-          products : productType[] 
+          products : productType[] ; 
+          img : File ; 
 }

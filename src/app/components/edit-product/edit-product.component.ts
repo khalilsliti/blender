@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient, HttpResponse } from '@angular/common/http';
 import { ProductService } from 'src/app/services/httpClients/product.service';
 import { imageValidator } from 'src/app/validators/image-validator';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';

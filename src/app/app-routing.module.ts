@@ -5,6 +5,7 @@ import { AddStoreComponent } from './components/add-store/add-store.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import { OwnerDashboardComponent } from './components/dashboards/owner-dashboard/owner-dashboard.component';
 import { EditProductComponent } from './components/edit-product/edit-product.component';
+import { EditStoreComponent } from './components/edit-store/edit-store.component';
 import { HomeComponent } from './components/home/home.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { ProductInfomationComponent } from './components/product-infomation/product-infomation.component';
@@ -28,6 +29,7 @@ const routes: Routes = [
       {path:"add-product", component:AddProductComponent, canActivate:[authGuard] } ,
       {path:"create-store" , component:AddStoreComponent, canActivate:[authGuard] } ,  
       {path:"edit-product" , component:EditProductComponent, canActivate:[authGuard] } ,  
+      {path:"edit-store" , component:EditStoreComponent, canActivate:[authGuard] }
     ] 
 } ,
  {path:"404" , component:NotFoundComponent} ,
