@@ -29,6 +29,7 @@ import { OwnerDashboardComponent } from './components/dashboards/owner-dashboard
 import { UserDashboardComponent } from './components/dashboards/user-dashboard/user-dashboard.component';
 import { AddStoreComponent } from './components/add-store/add-store.component';
 import { AddProductComponent } from './components/add-product/add-product.component';
+import { EditProductComponent } from './components/edit-product/edit-product.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,9 @@ import { AddProductComponent } from './components/add-product/add-product.compon
     OwnerDashboardComponent,
     UserDashboardComponent,
     AddStoreComponent,
-    AddProductComponent
+    AddProductComponent,
+    EditProductComponent,
+
   ],
   imports: [
     BrowserModule,

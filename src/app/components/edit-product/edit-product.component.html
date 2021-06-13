@@ -1,0 +1,100 @@
+<div class="container">
+    <form [formGroup]="editForm" id="editForm" (ngSubmit)="onSubmit()">
+    <section class="mb-5">
+        <div class="row">
+            <div class="col-4 mb-0">
+                  <div class="row">
+                    <figure class="view overlay rounded z-depth-1 main-img">
+                      <img class="img-fluid z-depth-2" id="profilepic" *ngIf="selectedItem" [src]="SRC" >
+                  </figure>
+                  </div>
+                  <div class="row">
+                    <div class="form-outline w-100">
+                        <select class="form-control"  formControlName="products" name="products" aria-label="show products" (change)="onProductChange($event)">
+                            <option value="none" selected>Select your Product</option>
+                            <option *ngFor="let product of idProducts " [value]="product['_id']">{{ product['label'] }} </option>
+                        </select><br>
+                      </div>
+                  </div>
+                  <div class="row">
+                    <div class="form-outline w-100">
+                    <button type="button"  aria-label="registration button" class="btn btn-primary btn-block mb-1" (click)="deleteProduct()">Delete Product</button>
+                     </div>  
+                </div>
+
+            </div>
+            <div class="col">
+                <div class="form-outline mb-2 form-group">
+                    <div class="input-group">
+                        <div class="form-outline w-100">
+                        <input  type="text"  aria-label="label" name="label" formControlName = "label"  class="form-control" max="20" min="5" placeholder="{{ 'label : ' + selectedItem.label }}" />
+                        <div *ngIf="label.invalid && label.dirty && ( label.errors?.pattern || label.errors?.maxlength || label.errors?.minlength ) " class="alert alert-danger" >
+                            Invalid label 
+                          </div>
+                        </div>
+                        </div>
+                    </div>
+                 
+                    <!-- EMAIL -->
+                    <div class="form-outline mb-2"> 
+                        <div class="input-group">
+                
+                          <div class="form-outline w-100">
+                            <input type="number"  aria-label="unitPrice" name="unitPrice"  formControlName = "unitPrice" class="form-control" placeholder="{{'Unit Price : ' + selectedItem.unitPrice  }}"max="50000" min="1"  >  
+                            <div *ngIf="unitPrice.invalid && unitPrice.dirty && unitPrice.errors?.min || unitPrice.errors?.max"
+                            class="alert alert-danger">
+                                Invalid Unit Price .
+                            </div>      
+                           </div>
+                        </div>
+                    </div>
+                        <div class="form-outline mb-2">  
+                            <div class="form-outline w-100">
+                            <input type="number"  aria-label="quantity" name="quantity"  formControlName = "quantity" class="form-control" min="1" max="9999" placeholder="{{ 'Quantity : ' + selectedItem.quantity }}" >
+                            <div *ngIf="quantity.invalid && quantity.dirty && quantity.errors?.min "
+                            class="alert alert-danger">
+                                Not enough Quantity
+                            </div>        
+                            <div *ngIf="quantity.invalid && quantity.dirty && quantity.errors?.max"
+                            class="alert alert-danger">
+                                Too Much Quantity
+                            </div> 
+                            </div>
+                          </div>
+                          <!-- IMG INPUT -->
+                          <div class="form-outline mb-2">
+                            <div class="input-group">
+                
+                                   <label for="custom-file"  id="custom-file-label" >Choose image</label>      
+                                   <input type="file" aria-label="image upload" formControlName="img" accept="image/jpeg" name="img" class="form-control" id="custom-file" style="padding: 0;" (change)="onFileSelect($event)" /> &nbsp;
+                            </div> 
+                         </div>
+                         <!--IMG ALERT-->
+                          <div class="form-outline mb-2">
+                          <div class="input-group">
+                            <div class="form-outline w-100">
+                              <div *ngIf="img.invalid && img.dirty && img.errors?.imageNotAcceptable"
+                              class="alert alert-danger">
+                                  Image must have '.jpg' extension and be less than 5 MBs .
+                              </div>        
+                            </div>
+                          </div>
+                        </div>
+                        <!--DETAILS INPUT -->
+                        <div class="form-outline mb-2">
+                            <div class="input-group">
+                                   <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" formControlName="detail" name="detail" placeholder="{{ 'Details : ' + selectedItem.detail}}" max="20" ></textarea>
+                                   <div *ngIf="detail.invalid && detail.dirty && ( detail.errors?.maxlength || detail.errors?.minlength ) "
+                                   class="alert alert-danger">
+                                       Put a Descriptive Detail 
+                                   </div>     
+                            </div>
+                        </div>
+                <br/>
+                    <!-- Submit button -->
+                    <button type="submit"  aria-label="registration button" [disabled] = "!( detail.dirty || unitPrice.dirty || quantity.dirty || label.dirty || img.dirty) || editForm.invalid" class="btn btn-primary btn-block mb-1" >Edit Product</button>
+            </div>
+        </div>
+    </section>
+</form>
+</div>

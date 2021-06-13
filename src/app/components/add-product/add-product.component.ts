@@ -32,7 +32,7 @@ export class AddProductComponent implements OnInit {
       quantity : new FormControl('',[Validators.required ,  Validators.min(0) , Validators.max(9999)]) ,
       img : new FormControl('',[]) , 
       detail: new FormControl('',[Validators.required, Validators.maxLength(20),Validators.minLength(10)]),
-    } , { validators : [passwordValidator]});
+    });
   }
 
   get label() {
