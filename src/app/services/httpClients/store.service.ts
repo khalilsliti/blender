@@ -5,6 +5,7 @@ const BACKEND_URL = 'http://127.0.0.1:3000';
 const API = {
   update: `${BACKEND_URL}/stores`,
   get: `${BACKEND_URL}/users`,
+  add:`${BACKEND_URL}/stores`
 };
 
 const OPTIONS : any = {
@@ -48,5 +49,28 @@ export class StoreService {
    {
       return this.http.delete(API.update,OPTIONS) ; 
    } 
-  }
 
+   public addStore = (data: Store) =>   
+   {
+    let formData = new FormData();
+
+    for( let key in data) {
+      
+      if ( data[key])
+      {
+        if( data[key] instanceof Object && key !== 'img') 
+          {
+            for (let nestedKey in data[key]) {
+              if( data[key][nestedKey] )
+                {
+                  formData.append(`${key}.${nestedKey}` , data[key][nestedKey]);
+                }
+            }
+          }else
+          {
+            formData.append(`${key}` , data[key]);
+          }
+      }
+  }
+  return this.http.post<Store>(API.add,formData , OPTIONS );
+   }}
