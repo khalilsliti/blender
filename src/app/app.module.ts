@@ -4,7 +4,6 @@ import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Ng2SearchPipeModule } from 'ng2-search-filter'
 import { AppComponent } from './app.component';
-
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MDBBootstrapModule} from 'angular-bootstrap-md';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -31,6 +30,7 @@ import { AddStoreComponent } from './components/add-store/add-store.component';
 import { AddProductComponent } from './components/add-product/add-product.component';
 import { EditProductComponent } from './components/edit-product/edit-product.component';
 import { EditStoreComponent } from './components/edit-store/edit-store.component';
+import { ManageOrdersComponent } from './components/manage-orders/manage-orders.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +55,7 @@ import { EditStoreComponent } from './components/edit-store/edit-store.component
     AddProductComponent,
     EditProductComponent,
     EditStoreComponent,
+    ManageOrdersComponent
 
   ],
   imports: [

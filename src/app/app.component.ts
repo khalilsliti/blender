@@ -18,7 +18,9 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.auth.authChannel$.subscribe( val =>
-      this.isAuth = val
+      {
+        this.isAuth = val[0] ;
+      } 
     );
   }
 

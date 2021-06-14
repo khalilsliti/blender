@@ -18,7 +18,7 @@ export class authGuard implements CanActivate
      {
          this.auth.authChannel$.subscribe( val => 
             {
-               this.isAuth = val ;  
+               this.isAuth = val[0] ;  
             });
             return this.isAuth ? true : this.router.createUrlTree(['/home']) ;  
      }

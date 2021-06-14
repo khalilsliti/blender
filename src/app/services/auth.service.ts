@@ -6,27 +6,32 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class AuthService {
 
-  private _authChannel$ : BehaviorSubject<boolean> = new BehaviorSubject(this.isAuth());
+  private _authChannel$ : BehaviorSubject<[boolean,String]> = new BehaviorSubject([this.isAuth(),this.isRole()]);
 
   constructor() { }
 
-  public authenticate( ) {
-     localStorage['isAuth'] = true;
-     this._authChannel$.next(true);
+  public authenticate(role:String) {
+     localStorage['isAuth'] = true; 
+     localStorage['role'] = role ; 
+     this._authChannel$.next([true,role]);
   }
 
   public deauthenticate() {
     localStorage.removeItem('isAuth');
-    this._authChannel$.next(false);
+    localStorage.removeItem('role') ; 
+    this._authChannel$.next([false,""]);
     
   }
 
   public isAuth() {
     return localStorage['isAuth'] || false;
   }
+  public isRole() 
+  {
+     return localStorage['role'] || "" ; 
+  }
 
-
-  public get authChannel$() : BehaviorSubject<boolean> {
+  public get authChannel$() : BehaviorSubject<[boolean,String]> {
     return this._authChannel$;
   }
 

@@ -22,7 +22,7 @@ export class EditProductComponent implements OnInit {
 
   ngOnInit(): void {
   
-    for ( let i = 0 ; i < 100 ; i ++   )
+    for ( let i = 0 ; i < 30 ; i ++   )
     {  
        this.http.fetchProduct(i).subscribe(
         ( data : Array<productType> ) => 
@@ -37,7 +37,7 @@ export class EditProductComponent implements OnInit {
            
         } ,(err) => 
         { 
-          console.log(err); 
+          swal.fire('' , 'An Error occured' , "error") ;  
         });  
         
     } 
