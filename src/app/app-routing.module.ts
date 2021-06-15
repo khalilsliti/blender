@@ -10,6 +10,7 @@ import { EditStoreComponent } from './components/edit-store/edit-store.component
 import { HomeComponent } from './components/home/home.component';
 import { ManageOrdersComponent } from './components/manage-orders/manage-orders.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { OrderComponentComponent } from './components/order-component/order-component.component';
 import { ProductInfomationComponent } from './components/product-infomation/product-infomation.component';
 import { ProductsListComponent } from './components/products-list/products-list.component';
 import { ProfileComponent } from './components/profile/profile.component';
@@ -26,10 +27,11 @@ const routes: Routes = [
  {path:"contact" , component:ContactUsComponent} ,
  {path:"profile" , component:ProfileComponent,canActivate:[authGuard]} ,
  {path:"customer-dashboard", component:UserDashboardComponent,canActivate:[authGuard]},
+ {path:"orders", component:OrderComponentComponent, canActivate:[authGuard]},
  {path:"owner-dashboard", component:OwnerDashboardComponent,canActivate:[authGuard] , 
     children:[
-      {path:"", redirectTo:"edit-product" , pathMatch:"full"} , 
-      {path:"manage-orders", component:ManageOrdersComponent , canActivate:[authGuard]}, 
+      {path:"", redirectTo:"manage-orders/0" , pathMatch:"full"} , 
+      {path:"manage-orders/:pageNumber", component:ManageOrdersComponent , canActivate:[authGuard]}, 
       {path:"add-product", component:AddProductComponent, canActivate:[authGuard]},
       {path:"create-store" , component:AddStoreComponent, canActivate:[authGuard]},  
       {path:"edit-product" , component:EditProductComponent, canActivate:[authGuard]},  

@@ -31,6 +31,7 @@ import { AddProductComponent } from './components/add-product/add-product.compon
 import { EditProductComponent } from './components/edit-product/edit-product.component';
 import { EditStoreComponent } from './components/edit-store/edit-store.component';
 import { ManageOrdersComponent } from './components/manage-orders/manage-orders.component';
+import { OrderComponentComponent } from './components/order-component/order-component.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { ManageOrdersComponent } from './components/manage-orders/manage-orders.
     AddProductComponent,
     EditProductComponent,
     EditStoreComponent,
-    ManageOrdersComponent
+    ManageOrdersComponent,
+    OrderComponentComponent
 
   ],
   imports: [

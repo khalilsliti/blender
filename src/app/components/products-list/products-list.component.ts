@@ -27,7 +27,6 @@ export class ProductsListComponent implements OnInit {
        if ( state )
        {
       this.storeId = state._id  ;
-      console.log(this.storeId) ; 
     } 
     }
    
@@ -35,7 +34,7 @@ export class ProductsListComponent implements OnInit {
   
     this.activatedRoute.params.subscribe( params =>
     {    
-      this.pageNumber=params['pageNumber']
+      this.pageNumber=params['pageNumber'] ;  
       this.productsservice.getProducts(this.pageNumber).subscribe(
         (response : productType[]) =>
         {

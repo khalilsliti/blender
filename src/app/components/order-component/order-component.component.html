@@ -1,0 +1,60 @@
+
+<section>
+    <!--Grid row-->
+    <div class="row">
+      <!--Grid column-->
+      <div class="col-lg-12">
+        <!-- Card -->
+        <div class="card wish-list mb-3">
+          <div class="card-body">
+            <div class="row mb-4">
+              <div class="col-md-5 col-lg-3 col-xl-3">
+                <div class="view zoom overlay z-depth-1 rounded mb-3 mb-md-0">
+                  <img class="img-fluid w-100"
+                    [src]="SRC" alt="Sample">
+                    <div class="mask waves-effect waves-light">
+                      <img class="img-fluid w-100"
+                        [src]="SRC">
+                      <div class="mask rgba-black-slight waves-effect waves-light"></div>
+                    </div>
+                </div>
+              </div>
+              <div class="col-md-7 col-lg-9 col-xl-9">
+                <div>
+                  <div class="d-flex justify-content-between">
+                    <div>
+                      <h2>{{ order['product']['label'] | uppercase}}</h2>
+                      <p class="mb-3 text-uppercase small" [ngStyle]="{'color': status === 'Pending' ? 'red' : 'green' }">{{ status }}</p>
+                      <div class="alert alert-primary" role="alert">
+                        <p class="mb-2 text-muted text-uppercase small">You Still have {{ order['product']['quantity']}} item in Stock</p>
+                      </div>
+                    </div>
+                    <div>
+                      <div class="def-number-input number-input safari_only mb-0 w-100">
+                        <input class="quantity" min="0" name="quantity" [value]="order['quantity']" type="number" disabled="true">
+                      </div>
+                      <small id="passwordHelpBlock" class="form-text text-muted text-center">
+                        Quantity
+                      </small>
+                    </div>
+                  </div>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                            <a type="button" [ngStyle]="{'pointer-events': status === 'Accepted' ? 'none' : 'auto' }" class="card-link-secondary small text-uppercase mr-3" (click)="acceptOrder()"><i class="fas fa-check  mr-1"></i> Accept Order </a>
+                            <a type="button" [ngStyle]="{'pointer-events': status === 'Pending' ? 'none' : 'auto' }" class="card-link-secondary small text-uppercase mr-3" (click)="denyOrder()" ><i
+                                class="fas fa-ban  mr-1"></i> Deny Order </a>
+                    </div>
+                    <div class="alert alert-info" role="alert">
+                        <p class="mb-0"><span><strong>{{ order['totalPrice']}}DT</strong></span></p>
+                      </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--Grid column-->
+    </div>
+    <!--Grid row-->
+  </section>
