@@ -11,18 +11,18 @@ export class ProductItemComponent implements OnInit {
   URL: string =  "http://127.0.0.1:3000/" ; 
  @Input() product : productType  ; 
  imgPath : string ;
- stockStatus : string ;   
+ stockStatus : boolean ;   
   constructor(private route:Router, 
               private activateRoute : ActivatedRoute )
                {}
 
   ngOnInit(): void { 
      this.imgPath = this.URL + this.product.imgPath ;
-     this.stockStatus = +this.product.quantity > 0 ? "In Stock" : "Sold Out " ;  
+     this.stockStatus = this.product.quantity > 0  ;  
   }
   viewItem() 
   {
     const navigationExtras: NavigationExtras  = {state: this.product }; 
-     this.route.navigate(["/product-information",this.product.label] ,  navigationExtras ) ; 
+     this.route.navigate(["/product-information"] ,  navigationExtras ) ; 
   }
 }

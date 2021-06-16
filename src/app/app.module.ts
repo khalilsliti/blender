@@ -32,6 +32,9 @@ import { EditProductComponent } from './components/edit-product/edit-product.com
 import { EditStoreComponent } from './components/edit-store/edit-store.component';
 import { ManageOrdersComponent } from './components/manage-orders/manage-orders.component';
 import { OrderComponentComponent } from './components/order-component/order-component.component';
+import { CartComponent } from './components/cart/cart.component';
+import { OrderComponent } from './components/order/order.component';
+
 
 @NgModule({
   declarations: [
@@ -57,8 +60,9 @@ import { OrderComponentComponent } from './components/order-component/order-comp
     EditProductComponent,
     EditStoreComponent,
     ManageOrdersComponent,
-    OrderComponentComponent
-
+    OrderComponentComponent,
+    CartComponent,
+    OrderComponent
   ],
   imports: [
     BrowserModule,

@@ -1,12 +1,16 @@
+
 <div class="card">
      
   <img
     [src]="imgPath"
+    [title]="store.name | titlecase"
+    [alt]="store.name | titlecase"
+    onerror="this.src='../../../assets/imgs/not-found/no-store.png';"
     class="card-img-top  view zoom overlay z-depth-2 "
   />
 
 <div class="card-body">
-  <h5 class="card-title">{{ store.name }}</h5>
+  <h5 class="card-title">{{ store.name | titlecase }}</h5>
   <p class="card-text">
      {{ store.address.street }}
   </p>

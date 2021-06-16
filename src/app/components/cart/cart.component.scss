@@ -1,0 +1,11 @@
+.dropdown-menu {
+    width: 90vw;
+     max-height: 50vh;
+}
+
+
+@media  (min-width: 991.98px) { 
+    .dropdown-menu {
+        width: 40vw;
+    }
+}

@@ -1,37 +1,68 @@
 <!--Section: Products v.3-->
 <div class="container">
-  <section class="text-center pb-3 my-5">
+  <main class="text-center pb-3 my-5">
 
     <!--Section heading-->
-    <h2 class="h1 py-5">Products List</h2>
+    <header>
+    <h1 class="h1-respnsive text-center py-5">Products List</h1>
     <!--Section description-->
-    <p class="grey-text mb-5">You can find here all the products that are available for purchase</p>
+    <p class="grey-text mb-5">You can find here all the products in Blender marketplace .</p>
     
     <div class="search">
-      <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="Search for products">
+      <span class="input-group-text border-0" id="search-addon">
+
+      <i class="fas fa-search"></i>&nbsp;
+      <input class="form-control" type="search" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="Search for stores">
+   
+    </span>
+
     </div>
-    
+  </header>
+  
     <!--Grid row-->
       <div class="row">
        <!--Grid column-->
-        <div   *ngFor="let product of products | filter:searchText" class="col-lg-3 col-md-6 mb-4">
+       <svg *ngIf="isUploading" aria-hidden="true" focusable="false" style="width: 10rem; height: 10rem;" data-prefix="fas" data-icon="blender-phone" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="zoomer svg-inline--fa fa-blender-phone text-primary   fa-lg m-auto">
+        <path fill="currentColor" d="M392 64h166.54L576 0H192v352h288l17.46-64H392c-4.42 0-8-3.58-8-8v-16c0-4.42 3.58-8 8-8h114.18l17.46-64H392c-4.42 0-8-3.58-8-8v-16c0-4.42 3.58-8 8-8h140.36l17.46-64H392c-4.42 0-8-3.58-8-8V72c0-4.42 3.58-8 8-8zM158.8 335.01l-25.78-63.26c-2.78-6.81-9.8-10.99-17.24-10.26l-45.03 4.42c-17.28-46.94-17.65-99.78 0-147.72l45.03 4.42c7.43.73 14.46-3.46 17.24-10.26l25.78-63.26c3.02-7.39.2-15.85-6.68-20.07l-39.28-24.1C98.51-3.87 80.09-.5 68.95 11.97c-92.57 103.6-92 259.55 2.1 362.49 9.87 10.8 29.12 12.48 41.65 4.8l39.41-24.18c6.89-4.22 9.7-12.67 6.69-20.07zM480 384H192c-35.35 0-64 28.65-64 64v32c0 17.67 14.33 32 32 32h352c17.67 0 32-14.33 32-32v-32c0-35.35-28.65-64-64-64zm-144 96c-17.67 0-32-14.33-32-32s14.33-32 32-32 32 14.33 32 32-14.33 32-32 32z" class=""></path>
+      </svg>
+      <!-- 
+        <div *ngIf="isUploading" class="spinner-grow m-auto text-primary" style="width: 15rem; height: 15rem;" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+      -->
+       <ng-container *ngIf="!isUploading">
+        <div  *ngFor="let product of products | filter:searchText" class="col-lg-3 col-md-6 mb-4">
           <app-product-item  [product]="product"  ></app-product-item>
         </div>
+      </ng-container>
         <!--Grid column-->
       </div>
 
-  </section>
+  </main>
 
-  <nav class="mt-3" aria-label="...">
-    <ul class="pagination pagination-lg justify-content-center">
-      <li   class="page-item" >
+
+<footer>
+
+  <nav class="mt-3" aria-label="paginator">
+    <ul class="pagination   pagination-lg justify-content-center">
+      <li  class="page-item" [ngClass]="{'disabled': disablePrevious}"  >
         <a  class="page-link"   aria-disabled="true"  (click)="previousPage()">Previous</a>
       </li>
-      <li class="page-item">
-          <a class="page-link" >{{pageNumber}}</a></li>
-      <li class="page-item"  >
-        <a class="page-link" (click)="nextPage()"  [ngClass]="{'disabled': disableNext}">Next</a>
+      <li class="page-item active">
+          <a class="page-link" >{{pageNumber}}</a>
+        </li>
+
+     
+
+      <li class="page-item"  [ngClass]="{'disabled': disableNext}"  >
+        
+        <a class="page-link" (click)="nextPage()" >Next</a>
       </li>
     </ul>
   </nav>
+
+</footer>
+
+
+ 
 </div>

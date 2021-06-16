@@ -1,8 +1,9 @@
 
 
 /* You can add global styles to this file, and also import other style files */
-@import 'assets/styles/forms-style.scss'; //forms stylesheet
+
 @import 'assets/styles/scrollbar-style.scss'; //custom scrollbar
+
 
 
 body {
@@ -18,4 +19,62 @@ body {
   background-color: #ef5350 !important;
 }
 
+
  
+body {
+
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.sofia {
+  font-family: "Sofia", sans-serif;
+}
+.glower :hover , .logo :hover , .nav-item :hover{
+  text-shadow: 3px 3px 50px #fff !important ;
+}
+
+.logo :active {
+  animation: scale 2s linear forwards ;
+}
+
+.zoomer{
+  transform: scale(0.5);
+  animation: zoom 1.5s linear forwards infinite ;
+
+}
+
+@keyframes scale {
+
+  50% {
+      transform: scale(1.25);
+
+  }
+
+  100% {
+      transform: scale(1);
+  }
+
+}
+
+@keyframes zoom {
+
+  25% {
+      transform: scale(1);
+
+  }
+
+  50% {
+    transform: scale(1.25);
+
+}
+
+75% {
+  transform: scale(1);
+
+}
+
+  100% {
+      transform: scale(0.5);
+  }
+
+}

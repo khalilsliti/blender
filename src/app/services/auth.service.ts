@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { CartChannelService } from './cart-channel.service';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,7 @@ export class AuthService {
 
   private _authChannel$ : BehaviorSubject<[boolean,String]> = new BehaviorSubject([this.isAuth(),this.isRole()]);
 
-  constructor() { }
+  constructor(private cartChannelService : CartChannelService) { }
 
   public authenticate(role:String) {
      localStorage['isAuth'] = true; 
@@ -20,6 +21,7 @@ export class AuthService {
     localStorage.removeItem('isAuth');
     localStorage.removeItem('role') ; 
     this._authChannel$.next([false,""]);
+    this.cartChannelService.resetCart();
     
   }
 
@@ -34,8 +36,6 @@ export class AuthService {
   public get authChannel$() : BehaviorSubject<[boolean,String]> {
     return this._authChannel$;
   }
-
-
 
 
 }

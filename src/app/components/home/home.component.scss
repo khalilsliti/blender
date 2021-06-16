@@ -1,5 +1,10 @@
+@import '../../../assets/styles/blender-animation.scss';
+
 .view {
     background: url("../../../assets/imgs/home/view-bg.jpg")no-repeat center center;
     background-size: cover;
     height: 100vh;
+    font-family: "Lucida Console", "Courier New", monospace;
+    text-shadow: 3px 3px 3px #ababab;
 }
+
