@@ -1,7 +1,7 @@
 <!-- Tabs navs -->
    <br>
 <ul class="nav nav-tabs nav-justified mb-3"  role="tablist">
-    <li class="nav-item" role="presentation">
+    <li  [ngStyle]="{'display': !store ? 'block' : 'none'}" class="nav-item" role="presentation">
       <a
         [ngClass]="{'active' : activeTab == 1 }"
         class="nav-link"
@@ -13,7 +13,7 @@
         name="create"
         >Create Store</a>
     </li>
-    <li class="nav-item" role="presentation">
+    <li   [ngStyle]="{'display': store ? 'block' : 'none'}" class="nav-item" role="presentation">
       <a
       (click) = "selectedTab($event)"
         [ngClass]="{'active' : activeTab == 2 }"
@@ -25,7 +25,7 @@
         name="editStore"
         >Edit Store</a>
     </li>
-    <li class="nav-item" role="presentation">
+    <li [ngStyle]="{'display': store ? 'block' : 'none'}" class="nav-item" role="presentation">
         <a
         (click) = "selectedTab($event)"
         [ngClass]="{'active' : activeTab == 3 }"
@@ -37,7 +37,7 @@
           routerLink="add-product"
           >Add Product</a>
       </li>
-      <li class="nav-item" role="presentation">
+      <li    [ngStyle]="{'display': store ? 'block' : 'none'}" class="nav-item" role="presentation">
         <a
         (click) = "selectedTab($event)"
         [ngClass]="{'active' : activeTab == 4 }" 
