@@ -22,6 +22,7 @@ export class AuthService {
     localStorage.removeItem('role') ; 
     this._authChannel$.next([false,""]);
     this.cartChannelService.resetCart();
+    document.location.href = "/";
     
   }
 
