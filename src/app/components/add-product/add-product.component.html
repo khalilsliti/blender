@@ -1,0 +1,84 @@
+<div class="container-fluid">
+    <div class="row h-100 justify-content-center align-items-center">
+<form [formGroup]="addProductForm" id="addProductForm" (ngSubmit) = 'onSubmit()' >
+                
+    <!--  label input -->
+    <div class="form-outline mb-2 form-group">
+    <div class="input-group">
+        <div class="form-outline w-100">
+        <input  type="text"  aria-label="label" name="label" formControlName = "label"  class="form-control" placeholder="label" max="20" min="5" required />
+        <div *ngIf="label.invalid && label.dirty && ( label.errors?.pattern || label.errors?.maxlength || label.errors?.minlength ) " class="alert alert-danger ">
+            Invalid label 
+          </div>
+        </div>
+        </div>
+    </div>
+     <div class="form-outline w-100 form-group ">
+        <select class="form-control"  formControlName = "unit" name="unit" aria-label="Product Unit" required>
+            <option value="none" selected>Select the Unit</option>
+            <option value="piece">Piece</option>
+            <option value="kg">Kg</option>
+        </select>
+      </div>
+ 
+
+    <div class="form-outline mb-2"> 
+        <div class="input-group">
+
+          <div class="form-outline w-100">
+            <input type="number"  aria-label="unitPrice" name="unitPrice"  formControlName = "unitPrice" class="form-control" placeholder="Unit Price ( DT ) "max="50000" min="1" required >  
+            <div *ngIf="unitPrice.invalid && unitPrice.dirty && unitPrice.errors?.min || unitPrice.errors?.max"
+            class="alert alert-danger">
+                Invalid Unit Price .
+            </div>      
+           </div>
+        </div>
+    </div>
+        <div class="form-outline mb-2">  
+            <div class="form-outline w-100">
+            <input type="number"  aria-label="quantity" name="quantity"  formControlName = "quantity" class="form-control" min="1" max="9999" placeholder="Quantity" required>
+            <div *ngIf="quantity.invalid && quantity.dirty && quantity.errors?.min "
+            class="alert alert-danger">
+                Not enough Quantity
+            </div>        
+            <div *ngIf="quantity.invalid && quantity.dirty && quantity.errors?.max"
+            class="alert alert-danger">
+                Too Much Quantity
+            </div> 
+            </div>
+          </div>
+          <!-- IMG INPUT -->
+          <div class="form-outline mb-2">
+            <div class="input-group">
+
+                   <label for="custom-file"  id="custom-file-label" >Choose image</label>      
+                   <input type="file" aria-label="image upload" formControlName="img" accept="image/jpeg" name="img" class="form-control" id="custom-file" style="padding: 0;" (change)="onFileSelect($event)" /> &nbsp;
+            </div> 
+         </div>
+         <!--IMG ALERT-->
+          <div class="form-outline mb-2">
+          <div class="input-group">
+            <div class="form-outline w-100">
+              <div *ngIf="img.invalid && img.dirty && img.errors?.imageNotAcceptable"
+              class="alert alert-danger">
+                  Image must have '.jpg' extension and be less than 5 MBs .
+              </div>        
+            </div>
+          </div>
+        </div>
+        <!--DETAILS INPUT -->
+        <div class="form-outline mb-2">
+            <div class="input-group">
+                   <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" formControlName="detail" name="detail" placeholder="Details" max="20" required></textarea>
+                   <div *ngIf="detail.invalid && detail.dirty && ( detail.errors?.maxlength || detail.errors?.minlength ) "
+                   class="alert alert-danger">
+                       Put a Descriptive Detail 
+                   </div>     
+            </div>
+        </div>
+<br/>
+    <!-- Submit button -->
+    <button type="submit"  aria-label="registration button" [disabled] = "!addProductForm.valid" class="btn btn-primary btn-block mb-1" >Add Product</button>
+</form>
+ </div>
+</div>  

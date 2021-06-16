@@ -19,6 +19,8 @@ export class User {
         public username : String = "" ,
         public password : String = "" ,
         public repassword : String = "" ,
-        public img? : File 
+        public newPassword: String = "", 
+        public img? : File , 
+        public imgPath? : String
     ){ }
 }

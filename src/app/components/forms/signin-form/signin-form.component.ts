@@ -21,7 +21,7 @@ export class SigninFormComponent implements OnInit {
     this.signInForm = this.fb.group({
 
      username : new FormControl('',[Validators.required , Validators.maxLength(15)]) ,
-      password : new FormControl('',[Validators.required , Validators.minLength(8) , Validators.maxLength(16)]) ,
+      password : new FormControl('',[Validators.required , Validators.minLength(8) , Validators.maxLength(16)]) 
      
     });
   }
@@ -45,8 +45,12 @@ export class SigninFormComponent implements OnInit {
 
     this.http.login(user).subscribe(
       () => { 
+          this.http.getuser().subscribe(
+            response => { 
+               this.auth.authenticate(response['body'][0]['role']); 
+            }
+          ) ; 
         
-        this.auth.authenticate();
 
         swal.fire('' , 'Logged in successfully  .' , 'success')
         

@@ -10,16 +10,30 @@ import Swal from 'sweetalert2';
 })
 export class NavbarComponent implements OnInit {
 
+  public isAuth : boolean ;
+  public role : String ; 
+  public dashboard : string ;
+
   constructor( private http : UserService , private auth : AuthService ) { }
 
  
-
-  public isAuth : boolean ;
+ 
 
   ngOnInit() {
     this.auth.authChannel$.subscribe( val =>
-      this.isAuth = val
-    );
+       { 
+        this.isAuth = val[0]; 
+        this.role = val[1] ;
+        if (this.role == "owner") 
+         {
+            this.dashboard = "/owner-dashboard" 
+         } else if (this.role == "customer")
+         {
+            this.dashboard = "/customer-dashboard" ; 
+         }
+
+        } 
+      );
   }
 
 

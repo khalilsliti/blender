@@ -1,0 +1,73 @@
+<div class="container">
+    <form [formGroup]="editStoreForm" id="editStoreForm" (ngSubmit)="onSubmit()">
+    <section class="mb-5">
+        <div class="row">
+            <div class="col-4 mb-0">
+                  <div class="row w-100 ">
+                    <figure class="view overlay rounded z-depth-1 main-img">
+                      <img class="img-fluid z-depth-2" id="profilepic" [src]="SRC">
+                  </figure>
+                  </div>
+                  <div class="row">
+                    <div class="form-outline w-90">
+                    <button type="button"  aria-label="registration button" class="btn btn-primary btn-block mb-1" (click)="deleteStore()">Delete Your Store</button>
+                     </div>  
+                </div>
+
+            </div>
+            <div class="col">
+                    <div class="form-outline mb-2 form-group">
+                    <div class="input-group">
+                        <div class="form-outline w-100">
+                        <input  type="text"  aria-label="label" name="name" formControlName = "name"  class="form-control" max="20" min="5" placeholder="{{ 'Name : ' + store.name }}" />
+                        <div *ngIf="name.invalid && name.dirty && ( name.errors?.pattern || name.errors?.maxlength || name.errors?.minlength ) " class="alert alert-danger" >
+                            Invalid name 
+                          </div>
+                        </div>
+                        </div>
+                    </div>
+                    <!-- Adress input -->
+
+                    <div class="form-outline mb-2">
+                        <div class="input-group" formGroupName="address" >
+                        <div class="form-outline">
+                            <span class="input-group-text">Address</span>
+                        </div>
+                        <div class="form-outline">
+                        <input type="text"  aria-label="governorate"  name="governorate"  formControlName = "governorate" class="form-control" placeholder="{{'Governorate : ' + store.address.governorate}}" >
+                        <input type="text"  aria-label="municipality" name="municipality" formControlName = "municipality" class="form-control" placeholder="{{'Municipality : ' + store.address.municipality}}" > 
+                        </div>
+                        <div class="form-outline">
+                        <input type="text"   aria-label="city" name="city" formControlName = "city" class="form-control" placeholder="{{'City : ' + store.address.city}}" >
+                        <input type="text"   aria-label="street" name="street" formControlName = "street" class="form-control" placeholder="{{ 'Street : ' + store.address.street}}" >
+                        </div>
+                        <input type="number"  aria-label="postal code" name="postalCode"  formControlName = "postalCode" class="form-control" placeholder="{{'Postal code : ' + store.address.postalCode}}" >
+                        </div>
+                    </div>
+                          <!-- IMG INPUT -->
+                          <div class="form-outline mb-2">
+                            <div class="input-group">
+                                   <label for="custom-file"  id="custom-file-label" >Choose image</label>      
+                                   <input type="file" aria-label="image upload" formControlName="img" accept="image/jpeg" name="img" class="form-control" id="custom-file" style="padding: 0;" (change)="onFileSelect($event)" /> &nbsp;
+                            </div> 
+                         </div>
+                         <!--IMG ALERT-->
+                          <div class="form-outline mb-2">
+                          <div class="input-group">
+                            <div class="form-outline w-100">
+                              <div *ngIf="img.invalid && img.dirty && img.errors?.imageNotAcceptable"
+                              class="alert alert-danger">
+                                  Image must have '.jpg' extension and be less than 5 MBs .
+                              </div>        
+                            </div>
+                          </div>
+                        </div>
+                      
+                <br/>
+                    <!-- Submit button -->
+                    <button type="submit"  aria-label="registration button" [disabled] = "!editStoreForm.dirty || editStoreForm.invalid" class="btn btn-primary btn-block mb-1" >Edit Store</button>
+            </div>
+        </div>
+    </section>
+</form>
+</div>

@@ -4,7 +4,6 @@ import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Ng2SearchPipeModule } from 'ng2-search-filter'
 import { AppComponent } from './app.component';
-
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MDBBootstrapModule} from 'angular-bootstrap-md';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -24,6 +23,15 @@ import { SigninModalComponent } from './components/signin-modal/signin-modal.com
 import { SigninFormComponent } from './components/forms/signin-form/signin-form.component';
 import { RegisterFormComponent } from './components/forms/register-form/register-form.component';
 import {AuthInterceptor} from './helpers/http-interceptors/AuthInterceptor';
+import { ProfileComponent } from './components/profile/profile.component';
+import { OwnerDashboardComponent } from './components/dashboards/owner-dashboard/owner-dashboard.component';
+import { UserDashboardComponent } from './components/dashboards/user-dashboard/user-dashboard.component';
+import { AddStoreComponent } from './components/add-store/add-store.component';
+import { AddProductComponent } from './components/add-product/add-product.component';
+import { EditProductComponent } from './components/edit-product/edit-product.component';
+import { EditStoreComponent } from './components/edit-store/edit-store.component';
+import { ManageOrdersComponent } from './components/manage-orders/manage-orders.component';
+import { OrderComponentComponent } from './components/order-component/order-component.component';
 import { CartComponent } from './components/cart/cart.component';
 import { OrderComponent } from './components/order/order.component';
 
@@ -44,6 +52,15 @@ import { OrderComponent } from './components/order/order.component';
     SigninModalComponent,
     SigninFormComponent,
     RegisterFormComponent,
+    ProfileComponent,
+    OwnerDashboardComponent,
+    UserDashboardComponent,
+    AddStoreComponent,
+    AddProductComponent,
+    EditProductComponent,
+    EditStoreComponent,
+    ManageOrdersComponent,
+    OrderComponentComponent,
     CartComponent,
     OrderComponent
   ],

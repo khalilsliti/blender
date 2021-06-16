@@ -34,11 +34,8 @@ export class ProductsListComponent implements OnInit {
       this.store = state ; 
        if ( state )
        {
-         this.storeId = state._id  ;
-       }
-       
-  
-     
+      this.storeId = state._id  ;
+    } 
     }
    
   ngOnInit(): void {

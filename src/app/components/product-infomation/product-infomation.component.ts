@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { productType } from 'src/app/Models/product.model';
+import { AuthService } from 'src/app/services/auth.service';
 import { Store } from 'src/app/Models/store.model';
 import { CartChannelService } from 'src/app/services/cart-channel.service';
 
@@ -19,15 +20,16 @@ export class ProductInfomationComponent implements OnInit {
   URL: string =  "http://127.0.0.1:3000/" ;  
   public product ; 
   imgPath : string ; 
+  public isAuth : boolean ;
+  public role : String ; 
 
-  constructor(private router : Router , private cartChannel : CartChannelService ) { 
+  constructor(private router : Router , private cartChannel : CartChannelService , private auth : AuthService ) { 
      
     const navigation = this.router.getCurrentNavigation();
     const state = navigation.extras.state as productType;
 
     if( !state )
       this.router.navigate(['/products']);
-
     this.label = state.label; 
     this.detail = state.detail ; 
     this.store = state.store ; 
@@ -43,7 +45,12 @@ export class ProductInfomationComponent implements OnInit {
   }
 
   ngOnInit(): void {
-   
+    this.auth.authChannel$.subscribe( val =>
+      { 
+       this.isAuth = val[0]; 
+       this.role = val[1] ;
+       } 
+     );
   }
 
   public addToCart(){

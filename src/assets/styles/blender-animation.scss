@@ -19,15 +19,43 @@
     color: #fff;
     letter-spacing: 0.02em;
     text-transform: uppercase;
-    text-shadow: 0 0 0.15em #1da9cc;
+    text-shadow: 0 0 0.15em black ;
     user-select: none;
     white-space: nowrap;
     filter: blur(0.007em);
     animation: shake 5s linear forwards infinite;
 }
+.titleProduct{
+    position: relative;
+    margin : auto;
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: calc(20px + 3vw);
+    font-weight: 400;
+    color: black;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    user-select: none;
+    white-space: nowrap;
+    filter: blur(0.007em);
+}
+.order{
+    position: relative;
+    margin : auto;
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: calc(10px + 2vw);
+    font-weight: 200;
+    color: black;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    user-select: none;
+    white-space: nowrap;
+    filter: blur(0.007em);
+}
 
 /*
 .title span {
+    #1da9cc
+   
     position: absolute;
     top: 0;
     left: 0;

@@ -1,0 +1,190 @@
+<br>
+<div class="container ">
+    <section class="mb-5">
+    
+        <div class="row">
+                <div class="col-4 mb-0">
+                  <div class="row w-100 ">
+                    <figure class="view overlay rounded z-depth-1 main-img">
+                      <img class="img-fluid z-depth-2" id="profilepic"  [src]="SRC">
+                  </figure>
+                  </div>
+                  <div class="row w-100 ">
+                    <button type="button" (click)="delete()" aria-label="registration button" class="btn btn-primary btn-block mb-1" >Delete your Account</button>
+                  </div>
+                 
+                </div>
+                <div class="col">
+                  <form [formGroup]="registerForm" id="registerForm" >
+                
+                    <!-- Full Name input -->
+                    <div class="form-outline mb-2 form-group">
+                    <div class="input-group">
+                        <div class="form-outline w-50">
+                        <input  type="text"  aria-label="first name" name="firstName" formControlName = "firstName"  class="form-control" placeholder="{{ 'first Name : ' + user.firstName }}"  />
+                        <div *ngIf="firstName.invalid && firstName.dirty && firstName.errors?.pattern" class="alert alert-danger ">
+                            Invalid First name .
+                          </div>
+                        </div>
+                        
+                        <div class="form-outline w-50">
+                        <input type="text" aria-label="last name" name="lastName"  formControlName = "lastName"  class="form-control" placeholder="{{ ' Last name : '   +  user.lastName}}"  />
+                        
+                      <div *ngIf="lastName.invalid && lastName.dirty && lastName.errors?.pattern"
+                      class="alert alert-danger">
+                          Invalid Last name .
+                      </div>      
+                        </div>
+                        </div>
+                      
+                      </div>
+                 
+                    <!-- Email and Phone input -->
+                    <div class="form-outline mb-2"> 
+                        
+                        <div class="input-group">
+                          <div class="form-outline w-50">
+                            <input type="email"  aria-label="email" name="email"  formControlName = "email" class="form-control" placeholder="{{ 'Your Email : ' + user.email }}"  />
+                                    
+                            <div *ngIf="email.invalid && email.dirty && email.errors?.email"
+                            class="alert alert-danger">
+                                Invalid email format .
+                            </div>      
+                           </div>
+                            <div class="form-outline w-50">
+                            <input type="number"  aria-label="phone number" name="phone"  formControlName = "phone" class="form-control" min="20000000" max="99999999" placeholder="{{ 'Your Phone : '  +  user.phone }}" >
+                            <div *ngIf="phone.invalid && phone.dirty && phone.errors?.min || phone.errors?.max"
+                            class="alert alert-danger">
+                                Invalid phone number .
+                            </div>        
+                          
+                            </div>
+                          </div>
+                
+                    </div>
+                
+                  
+                      <!-- Role and Username input -->
+                      <div class="form-outline mb-2">
+                          
+                        <div class="input-group">
+                            <div class="form-outline w-50">
+                               <!-- Username input -->
+                        <input type="text" disabled aria-label="Username" name="username"   formControlName = "username" class="form-control" placeholder="{{ 'Username :' + user.username }}" >  
+                        <div *ngIf="username.invalid && username.dirty && username.errors?.maxlength"
+                        class="alert alert-danger">
+                            Username must not exceed 15 characters .
+                        </div>        
+                
+                        </div>
+                        <div class="form-outline w-50">
+                          <input type="text" disabled aria-label="Account role" name="role"   formControlName = "role" class="form-control" placeholder="{{ 'Role : ' + user.role }}" >  
+                        </div>
+                       
+                     
+                          </div>
+                          </div>
+                    
+                          <!-- Birth date and File input -->
+                
+                          <div class="form-outline">
+                
+                            <div class="input-group">
+                
+                
+                                   <!-- File input -->
+                                   
+                                   <label for="custom-file"  id="custom-file-label" >Choose image</label>      
+                                   <input type="file"  aria-label="image upload" formControlName="img" accept="image/jpeg" name="img" class="form-control" id="custom-file" style="padding: 0;" (change)="onFileSelect($event)" /> &nbsp;
+                
+                              <!-- Birthdate input-->
+                
+                              <span class="input-group-text">Birth date</span>
+                              <input type="date"  place="birthdate" aria-label="Birth date"  formControlName = "birthDate" class="form-control" placeholder="Birth date"  >
+                             
+                
+                  </div>
+                            
+                          </div>
+                          <div class="form-outline mb-2  ">
+                          <div class="input-group">
+                            <div class="form-outline w-50">
+                              <div *ngIf="img.invalid && img.dirty && img.errors?.imageNotAcceptable"
+                              class="alert alert-danger">
+                                  Image must have '.jpg' extension and be less than 5 MBs .
+                              </div>        
+                            </div>
+                          <div class="form-outline  w-50">
+                            <div *ngIf="birthDate.invalid && birthDate.dirty && birthDate.errors?.notOldEnough"
+                        class="alert alert-danger">
+                            User must be sixteen years old or older .
+                        </div>        
+                          </div>
+                          </div>
+                </div>
+                
+                          <!-- Adress input -->
+                
+                          <div class="form-outline mb-2">
+                              <div class="input-group" formGroupName="address" >
+                                <div class="form-outline">
+                                    <span class="input-group-text">Address</span>
+                                </div>
+                                <div class="form-outline">
+                                <input type="text" aria-label="governorate"  name="governorate"  formControlName = "governorate" class="form-control" placeholder="{{ 'Governorate : ' + user.address.governorate }}" >
+                                <input type="text"  aria-label="municipality" name="municipality" formControlName = "municipality" class="form-control" placeholder="{{ 'Municipality : ' + user.address.municipality }}" > 
+                                </div>
+                                <div class="form-outline">
+                                <input type="text"   aria-label="city" name="city" formControlName = "city" class="form-control" placeholder="{{'City : ' + user.address.city}}" >
+                                <input type="text"  aria-label="street" name="street" formControlName = "street" class="form-control" placeholder="{{ 'Street :' +  user.address.street }}" >
+                                </div>
+                                <input type="number"  aria-label="postal code" name="postalCode"  formControlName = "postalCode" class="form-control" placeholder="{{ 'Postal code : ' + user.address.postalCode }}" >
+                              </div>
+                            </div>
+                
+                         
+                
+                
+                    <!-- Password input -->
+                    <div class="input-group">
+                      <input type="password"   aria-label="password" name="password" formControlName = "password" class="form-control" placeholder="Current Password"  />&nbsp;
+                  </div>
+                  <div class="form-outline">
+                    <div *ngIf="password.invalid  && password.dirty &&  password.errors?.minlength || password.errors?.maxlength  "
+                class="alert alert-danger">
+                    Password must be 8-16 characters long  .
+                </div>        
+                  </div>
+                     <div class="input-group">
+                        <input type="password"   aria-label="newPassword" name="newPassword" formControlName = "newPassword" class="form-control" placeholder="New Password"  />&nbsp;
+                        <input type="password"   aria-label="retype password" name="repassword" formControlName = "repassword" class="form-control" placeholder="Repeat Password"  />
+                    </div>
+                    
+                    <div class="form-outline">
+                      <div *ngIf="newPassword.invalid  && newPassword.dirty && ! registerForm.errors?.passwordsDontMatch && newPassword.errors?.minlength || newPassword.errors?.maxlength  "
+                  class="alert alert-danger">
+                      Password must be 8-16 characters long  .
+                  </div>        
+                    </div>
+                
+                    <div class="form-outline">
+                      <div *ngIf="registerForm.invalid && registerForm.dirty && registerForm.errors?.passwordsDontMatch" class="alert alert-danger">
+                      Passwords do not match .
+                  </div>        
+                    </div>
+                
+                <br/>
+                
+                    <!-- Submit button -->
+                    <button type="button" (click)="update()" aria-label="registration button" [disabled]="!registerForm.dirty || !registerForm.valid " class="btn btn-primary btn-block mb-1" >Update your informations</button>
+                
+                </form>
+                
+                </div>
+        </div>
+       
+      </section>
+      
+    </div> 
+
+
