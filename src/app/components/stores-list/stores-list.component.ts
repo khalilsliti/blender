@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute , Router } from '@angular/router';
-import { tap } from 'rxjs/operators';
-import { Store } from 'src/app/Models/Store.model';
+import { Store } from 'src/app/Models/store.model';
 import { StoresListChannelService } from 'src/app/services/stores-list-channel.service';
 import { StoresService } from 'src/app/services/stores.service';
 import Swal from 'sweetalert2';

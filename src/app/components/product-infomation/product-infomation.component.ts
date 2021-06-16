@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { productType } from 'src/app/Models/product.model';
-import { Store } from 'src/app/Models/Store.model';
+import { Store } from 'src/app/Models/store.model';
 import { CartChannelService } from 'src/app/services/cart-channel.service';
 
 @Component({
