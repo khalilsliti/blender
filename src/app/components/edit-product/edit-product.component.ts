@@ -14,7 +14,7 @@ export class EditProductComponent implements OnInit {
   public URL : String = "http://127.0.0.1:3000/" ;  
   public SRC : string ; 
   public image : File ;
-  public selectedItem : productType  = { _id : "" ,  unitPrice : 0, quantity :  0 , orders : "" ,  label : "",  keywords : [] ,  detail : "" , createdAt : "" , categories: []  , unit: "" }  ; 
+  public selectedItem : productType  = { _id : "" ,  unitPrice : 0, quantity :  0 , orders : [] ,  label : "",  keywords : [] ,  detail : "" , createdAt : "" , categories: []  , unit: "" }  ; 
   private ALPHA_NUM_PATTERN : RegExp = /^[a-z\d\-_\s]+$/i  ; 
   public  idProducts :  productType[] = [];  
   public editForm : FormGroup ; 

@@ -6,6 +6,11 @@
                   <div class="row">
                     <figure class="view overlay rounded z-depth-1 main-img">
                       <img class="img-fluid z-depth-2" id="profilepic" *ngIf="selectedItem" [src]="SRC" >
+                      <div class="mask waves-effect waves-light">
+                        <img class="img-fluid w-100"
+                          [src]="SRC">
+                        <div class="mask rgba-black-slight waves-effect waves-light"></div>
+                      </div>
                   </figure>
                   </div>
                   <div class="row">

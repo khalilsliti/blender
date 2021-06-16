@@ -14,7 +14,6 @@ export class ManageOrdersComponent implements OnInit {
    public notEnough : boolean ; 
    public spinner : boolean; 
   constructor( private activatedRoute:ActivatedRoute,private http : OrderService , private router : Router ) { }
-
   ngOnInit(): void {
    this.activatedRoute.params.subscribe( params => 
     { 
@@ -22,12 +21,12 @@ export class ManageOrdersComponent implements OnInit {
        this.http.getOrders(this.pageNumber).subscribe ( (response : OrderOwner[]) =>
       { 
            this.orders = response ;  
-           if (this.orders.length == 0 ) 
+           if (!this.orders.length) 
             {
             this.notEnough = true ;
             setTimeout(() => {
               this.spinner = true ; 
-            } , 1000 );
+            } , 500 );
             }  
             else
             {

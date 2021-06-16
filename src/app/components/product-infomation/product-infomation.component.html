@@ -13,25 +13,38 @@
         <div class="mdb-lightbox">
   
           <div class="row product-gallery mx-1">
-  
-            <div class="col-12 mb-0" >
-              <figure class="view overlay rounded z-depth-1 main-img">
-                  <img [src]="imgPath"
-                  onerror="this.src='../../../assets/imgs/not-found/no-product.png';"
-                  [title]="label | titlecase"
-                  [alt]="label | titlecase"
-                    class="img-fluid z-depth-1">
-              </figure>
+           <!--
+              <div class="view zoom overlay z-depth-1 rounded mb-3 mb-md-0">
+                  <img class="img-fluid w-100"
+                    [src]="SRC" alt="Sample">
+                    <div class="mask waves-effect waves-light">
+                      <img class="img-fluid w-100"
+                        [src]="SRC">
+                      <div class="mask rgba-black-slight waves-effect waves-light"></div>
+                    </div>
+                </div>
+           -->
+            <div class="col-12 view zoom overlay z-depth-1 rounded mb-3 mb-md-0 " >
+                  <img  class="img-fluid  w-100" [src]="imgPath" onerror="this.src='../../../assets/imgs/not-found/no-product.png';" [title]="label | titlecase" [alt]="label | titlecase"  >
+                  <div class="mask waves-effect waves-light">
+                    <img class="img-fluid w-100"
+                      [src]="imgPath">
+                    <div class="mask rgba-black-slight waves-effect waves-light"></div>
+                  </div>
+        
             </div>
           </div>
   
         </div>
   
       </div>
-      <div class="col-md-12">
+      <div class="col-md-6">
   
-        <strong><h5> {{ label }}</h5></strong>
-        <p><span class="mr-1"><strong><span>Price : </span>{{ unitPrice }}DT</strong></span></p>
+        
+        <div class="alert alert-primary" role="alert">
+          <strong><h5 class="font-weight-bold"> {{ label| uppercase }}</h5></strong>
+          <p><span class="mr-1"><strong><span>Price : </span>{{ unitPrice }}DT</strong></span></p>
+        </div>
         <p class="pt-1">{{ detail }}</p>
         <div class="table-responsive">
           <table class="table table-sm table-borderless mb-0">
@@ -45,12 +58,13 @@
                 <td>{{ store.address.street  }} , {{ store.address.governorate}} {{ store.address.city }}</td>
               </tr>
               <tr>
-                <th class="pl-0 w-25" scope="row" [ngClass]="{ 'available': available , 'notAvailable' : !available }"><strong>{{ available  ? "In Stock " : "Sold Out " }}</strong></th>
+                <th class="pl-0 w-25" scope="row" class="stock" [ngClass]="{ 'available': available , 'notAvailable' : !available }"><strong>{{ available  ? "In Stock " : "Sold Out " }}</strong></th>
               </tr>
             </tbody>
           </table>
         </div>
         <hr>
+        <div [ngStyle]="{'display':  role == 'owner' ? 'none' : 'block'}">
         <div class="table-responsive mb-2">
           <table class="table table-sm table-borderless">
             <tbody>
@@ -77,6 +91,7 @@
           </svg>
           <span class="pl-2">Add to cart</span>
         </button>
+      </div>
       </div>
     </div>
   

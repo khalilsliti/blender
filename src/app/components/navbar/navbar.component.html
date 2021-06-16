@@ -22,7 +22,7 @@
               
           </ul>
           <ul class="navbar-nav ml-auto nav-flex-icons">
-            <li *ngIf="isAuth" class="nav-item dropdown" dropdown>              
+            <li *ngIf="isAuth && role == 'customer'" class="nav-item dropdown" dropdown>              
                <app-cart></app-cart>
             </li>
               <li *ngIf = "isAuth" class="nav-item dropdown" dropdown>

@@ -25,9 +25,6 @@ export class StoresListComponent implements OnInit {
     private activatedRoute:ActivatedRoute,
     private router:Router ,
     private storesListChannel : StoresListChannelService) { 
-    
-
-
     }
 
   ngOnInit(): void {
