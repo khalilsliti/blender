@@ -4,6 +4,7 @@ import { productType } from 'src/app/Models/product.model';
 import { AuthService } from 'src/app/services/auth.service';
 import { Store } from 'src/app/Models/store.model';
 import { CartChannelService } from 'src/app/services/cart-channel.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-product-infomation',
@@ -54,7 +55,14 @@ export class ProductInfomationComponent implements OnInit {
   }
 
   public addToCart(){
-    this.cartChannel.push( Object.assign({},this.product) );
+
+    if(! this.isAuth)
+      {
+        Swal.fire('' , 'You must sign in first .' , 'info');
+      }
+
+    if(this.role === 'customer')
+        this.cartChannel.push( Object.assign({},this.product) );
   }
 
 }
