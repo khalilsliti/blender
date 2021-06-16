@@ -10,7 +10,7 @@ import { StoresListComponent } from './components/stores-list/stores-list.compon
 
 const routes: Routes = [
  {path:"home" , component:HomeComponent} ,
- {path:"product-information/:label", component:ProductInfomationComponent}, 
+ {path:"product-information", component:ProductInfomationComponent}, 
  {path:"products/:pageNumber" , component:ProductsListComponent} ,
  {path:"products" , redirectTo:"products/0", pathMatch:"full"},
  {path:"stores/:pageNumber" , component:StoresListComponent} ,

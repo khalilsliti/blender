@@ -2,12 +2,15 @@
      
   <img
     [src]="imgPath"
+    [title]="product.label | titlecase"
+    [alt]="product.label | titlecase"
+    onerror="this.src='../../../assets/imgs/not-found/no-product.png';"
     class="card-img-top view zoom overlay z-depth-2"
   />
 
 <div class="card-body">
-  <h5 class="card-title">{{ product.label }}</h5>
-  <p class="card-text text-danger font-weight-bold">{{stockStatus}}</p>
+  <h5 class="card-title">{{ product.label | titlecase }}</h5>
+  <p class="card-text  font-weight-bold" [ngClass]="{ 'available': stockStatus , 'notAvailable' : !stockStatus }">{{stockStatus ? "In Stock" : "Sold Out "}}</p>
   <p class="card-text text-primary font-weight-bold">
     {{ product.unitPrice }}DT
   </p>

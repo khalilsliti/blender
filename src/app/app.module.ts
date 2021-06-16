@@ -24,6 +24,8 @@ import { SigninModalComponent } from './components/signin-modal/signin-modal.com
 import { SigninFormComponent } from './components/forms/signin-form/signin-form.component';
 import { RegisterFormComponent } from './components/forms/register-form/register-form.component';
 import {AuthInterceptor} from './helpers/http-interceptors/AuthInterceptor';
+import { CartComponent } from './components/cart/cart.component';
+import { OrderComponent } from './components/order/order.component';
 
 
 @NgModule({
@@ -41,7 +43,9 @@ import {AuthInterceptor} from './helpers/http-interceptors/AuthInterceptor';
     ProductInfomationComponent,
     SigninModalComponent,
     SigninFormComponent,
-    RegisterFormComponent
+    RegisterFormComponent,
+    CartComponent,
+    OrderComponent
   ],
   imports: [
     BrowserModule,

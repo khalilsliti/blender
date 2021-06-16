@@ -21,7 +21,7 @@ export class StoreItemComponent implements OnInit {
   {
     const navigationExtras: NavigationExtras  = { state: this.store }; 
      this.router.navigate(["/products"] ,  navigationExtras ) ; 
-     console.log( navigationExtras ) ; 
+    
   }
   
 

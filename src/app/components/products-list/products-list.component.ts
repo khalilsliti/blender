@@ -1,9 +1,11 @@
-import {pairwise} from 'rxjs/internal/operators';
+import {pairwise, tap} from 'rxjs/internal/operators';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 import { productType } from 'src/app/Models/product.model';
 import { ProductsService } from 'src/app/services/products.service';
 import { Store } from 'src/app/Models/Store.model';
+import Swal from 'sweetalert2';
+import { ProductsListChannelService } from 'src/app/services/products-list-channel.service';
 
 @Component({
   selector: 'app-products-list',
@@ -16,50 +18,87 @@ export class ProductsListComponent implements OnInit {
   searchText:string; 
   pageNumber: number ; 
   products:Array<productType>
-  disableNext : boolean  = false ;  
+  disableNext : boolean = true ; 
+  disablePrevious : boolean = true ; 
+  pageSize : number = 12;
+
+  isUploading : boolean ;
+
   constructor(private productsservice:ProductsService,
               private activatedRoute:ActivatedRoute,
-              private router:Router)
+              private router:Router ,
+              private prouctsListChannel : ProductsListChannelService)
     {
       const navigation = this.router.getCurrentNavigation();
       const state = navigation.extras.state as Store; 
       this.store = state ; 
        if ( state )
        {
-      this.storeId = state._id  ;
-      console.log(this.storeId) ; 
-    } 
+         this.storeId = state._id  ;
+       }
+       
+  
+     
     }
    
   ngOnInit(): void {
+
+    this.prouctsListChannel.uploadingChannel$.subscribe(val => {
+      this.isUploading = val;
+    });
   
+
     this.activatedRoute.params.subscribe( params =>
-    {    
-      this.pageNumber=params['pageNumber']
-      this.productsservice.getProducts(this.pageNumber).subscribe(
-        (response : productType[]) =>
-        {
-          if( this.storeId )
-          {
+    {
+      
+      
+      this.pageNumber= Math.max( 0 , Math.min(  Number(params['pageNumber']) , Number.MAX_SAFE_INTEGER ) ) ;
+
+      if( isNaN( this.pageNumber ) )
+      {
+        this.router.navigate(['products']);
+      }
+      else
+      {
+        
+        this.productsservice.getProducts(this.pageNumber).subscribe(
+          (response : productType[]) =>
+          { 
+     
             this.products = response ; 
-            this.products =  this.products.filter( product  => 
-            {  
-               return this.storeId == product.store._id ;  
-            }) ; 
-          }else 
-          {
-            this.products = response ; 
-             
-          }
-          // this.disableNext = this.products.length < 12 ? true : false ; 
-          console.log(response);
+            
+            if( ! this.products.length && this.pageNumber > 0)
+              this.router.navigate(['products']);
+            
+            if( this.storeId )
+            {
+
+              this.products =  this.products.filter( product  => this.storeId == product.store._id ) ; 
+
+            }
+
+            this.disableNext = this.products.length < this.pageSize ? true : false ;
+            this.disablePrevious = this.pageNumber == 0; 
           
-        },
-        () =>
-        {
-          this.router.navigate(["/404"]) ; 
-        }
-      )
+            
+          },
+          () =>
+          {
+            Swal.fire({
+              icon: 'error',
+              title: 'Oops...',
+              text: 'Something went wrong!',
+            });
+           
+            this.router.navigate(["/"]) ; 
+            this.prouctsListChannel.uploading(false);
+          } ,
+          () => {
+            this.prouctsListChannel.uploading(false);
+          }
+        )
+      }
+
     });  
   }
  
