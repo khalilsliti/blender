@@ -43,6 +43,7 @@
                             <a type="button" [ngStyle]="{'pointer-events': status === 'Accepted' ? 'none' : 'auto' }" class="card-link-secondary small text-uppercase mr-3" (click)="acceptOrder()"><i class="fas fa-check  mr-1"></i> Accept Order </a>
                             <a type="button" [ngStyle]="{'pointer-events': status === 'Pending' ? 'none' : 'auto' }" class="card-link-secondary small text-uppercase mr-3" (click)="denyOrder()" ><i
                                 class="fas fa-ban  mr-1"></i> Deny Order </a>
+                            <button type="button" class="btn btn-info" (click)="viewCustomerInfo()">View Customer informations</button>
                     </div>
                     <div class="alert alert-info" role="alert">
                         <p class="mb-0"><span><strong>{{ order['totalPrice']}}DT</strong></span></p>

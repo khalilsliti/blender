@@ -29,6 +29,7 @@ export class EditStoreComponent implements OnInit {
     this.http.getStore().subscribe((response : HttpResponse<Store>)=>
     {
       this.store = response.body[0]['store'] ; 
+      console.log(this.store) ; 
       this.SRC = `${this.URL}${this.store.imgPath}`  ;
       });
     this.editStoreForm = this.fb.group(
