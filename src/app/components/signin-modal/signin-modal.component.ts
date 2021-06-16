@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
 
 
 @Component({
@@ -15,9 +16,15 @@ export class SigninModalComponent implements OnInit {
   public loginSelected : boolean ;
   public title : String ;
 
-  constructor() { }
+  constructor(private authSerivce : AuthService) { }
 
   ngOnInit(): void {
+
+    this.authSerivce.authChannel$.subscribe(isAuth => {
+      if(isAuth)
+        document.getElementById('closeBtn').click();
+    });
+
     this.selectLogin();
   }
 

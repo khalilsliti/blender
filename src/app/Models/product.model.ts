@@ -4,7 +4,7 @@ export class productType {
     unitPrice : number ; 
     store : Store ; /**/ 
     quantity : number ; 
-    orders : string ; /**/
+    orders : string[] ; /**/
     label : string ;
     keywords : string[] ; 
     imgPath : string ; 

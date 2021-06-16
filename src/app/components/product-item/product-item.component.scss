@@ -1,6 +1,13 @@
 
 
 .card > img {
-    height: 45%;
+    height: 35vh;
     max-width: 100%;
+}
+
+.available {
+    color: green ;  
+}
+.notAvailable {
+    color : red   ; 
 }

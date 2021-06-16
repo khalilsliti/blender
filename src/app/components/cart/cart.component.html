@@ -1,0 +1,54 @@
+<div class="container-fluid">
+                <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
+                  
+                  <mdb-icon fas icon="shopping-cart"></mdb-icon><span class="badge rounded-pill badge-notification bg-primary">{{orders.length <= 999 ? orders.length : "999+"}}</span></a>
+                <div *dropdownMenu class="z-depth-5 dropdown-menu dropdown-menu-right dropdown dropdown-primary overflow-auto" (click)="$event.stopPropagation();" role="menu">
+                
+                <div *ngIf="orders.length > 0 ;else emptyCart" >
+                    <div class="row mt-1 container-fluid">
+                        <div class="col-md-3 my-auto">
+                            <p class="text-left"> <span class="font-weight-normal">Total : </span> <span>{{totalPrice}}</span>&nbsp;DT </p>
+                        </div>
+                        <div class="col-md-6 ml-0 ">
+                            <button (click)="shop();" type="submit"  class="btn btn-primary btn-block " [disabled]="isUploading" >
+                                <span *ngIf="!isUploading"><i class="fas fa-shopping-cart pr-1"  ></i><span>Buy now</span> </span>
+                                <span *ngIf="isUploading"><span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+                                <span>Loading...</span></span>
+                          </button>
+                         
+                        </div>
+                        
+                        <div class="col-md-1 mr-0">
+                            <button type="button" title="Remove cart" (click)="resetCart()" class="close" aria-label="Close">
+              
+                                <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="red" class="bi bi-cart-x" viewBox="0 0 16 16">
+                                    <path d="M7.354 5.646a.5.5 0 1 0-.708.708L7.793 7.5 6.646 8.646a.5.5 0 1 0 .708.708L8.5 8.207l1.146 1.147a.5.5 0 0 0 .708-.708L9.207 7.5l1.147-1.146a.5.5 0 0 0-.708-.708L8.5 6.793 7.354 5.646z"/>
+                                    <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                                  </svg>
+                              </button>
+                        </div>
+
+                    </div>
+                
+                    <app-order (selectedOrder)="removeOrder($event)" [link]="order.imgPath" [label]= "order.label"
+                    [quantity]="order.orderQuantity" [index]="index" [unit]="order.unit" [unitPrice]="order.unitPrice" 
+                    *ngFor="let order of orders ; let index = index"></app-order>
+               </div>
+
+               <ng-template #emptyCart>
+                   <hr>
+                <div class="row mt-1 container-fluid">
+                    <div class="col-md-12 m-auto">
+                        <p class="text-center"> You have no item in your shopping cart . </p>
+                        <pre class="text-center"> You can explore the available <a class="link-info" style="color:#007bff" routerLink="products" >products</a> and 
+add them to your shopping cart . </pre>
+                        
+                    </div>
+             
+                </div>
+                <hr>
+               </ng-template>
+                
+                </div>
+</div>
+  
