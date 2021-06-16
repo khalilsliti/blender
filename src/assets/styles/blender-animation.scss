@@ -1,6 +1,9 @@
 
 
 
+
+
+
 .title::before
 {
     all : revert !important;
@@ -54,6 +57,8 @@
     -webkit-clip-path: polygon(44% 0%, 100% 0%, 100% 100%, 70% 100%);
             clip-path: polygon(44% 0%, 100% 0%, 100% 100%, 70% 100%);
 }*/
+
+
 
 @keyframes shake {
     5%, 15%, 25%, 35%, 55%, 65%, 75%, 95% {
