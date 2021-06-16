@@ -1,4 +1,4 @@
-import { Store } from "./Store.model";
+import { Store } from "./store.model";
 export class productType {
     _id : string ; 
     unitPrice : number ; 

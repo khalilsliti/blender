@@ -1,9 +1,9 @@
-import {pairwise, tap} from 'rxjs/internal/operators';
+
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 import { productType } from 'src/app/Models/product.model';
 import { ProductsService } from 'src/app/services/products.service';
-import { Store } from 'src/app/Models/Store.model';
+import { Store } from 'src/app/Models/store.model';
 import Swal from 'sweetalert2';
 import { ProductsListChannelService } from 'src/app/services/products-list-channel.service';
 
