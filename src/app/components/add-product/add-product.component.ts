@@ -18,16 +18,18 @@ export class AddProductComponent implements OnInit {
   public image : File ;
   private  APLHA_PATTERN :RegExp = /^[a-z]*$/i ;
   private ALPHA_NUM_PATTERN : RegExp = /^[a-z\d\-_\s]+$/i  ; 
-  public registerForm : FormGroup ;
+  private  UNIT_PATTERN :RegExp = /(^piece$)|(^kg$)/;
+  public addProductForm : FormGroup ;
 
   constructor(private fb:FormBuilder , private http : ProductService) { }
 
   ngOnInit(): void {
   
 
-    this.registerForm = this.fb.group({
+    this.addProductForm = this.fb.group({
 
       label : new FormControl('',[Validators.required , Validators.pattern(this.ALPHA_NUM_PATTERN), Validators.maxLength(20),Validators.minLength(5)]) ,
+      unit : new FormControl('none',[Validators.required , Validators.pattern(this.UNIT_PATTERN) ]) ,
       unitPrice :  new FormControl('',[Validators.required , Validators.min(1),Validators.max(50000)]),
       quantity : new FormControl('',[Validators.required ,  Validators.min(0) , Validators.max(9999)]) ,
       img : new FormControl('',[]) , 
@@ -36,23 +38,25 @@ export class AddProductComponent implements OnInit {
   }
 
   get label() {
-    return this.registerForm.get('label');
+    return this.addProductForm.get('label');
   }
 
   get unitPrice() {
-    return this.registerForm.get('unitPrice');
+    return this.addProductForm.get('unitPrice');
   }
-
+  get unit() {
+    return this.addProductForm.get('unit');
+  }
   get quantity() {
-    return this.registerForm.get('quantity');
+    return this.addProductForm.get('quantity');
   }
 
   get img() {
-    return this.registerForm.get('img');
+    return this.addProductForm.get('img');
   }
   get detail() 
   {
-     return this.registerForm.get('detail') ; 
+     return this.addProductForm.get('detail') ; 
   }
 
 
@@ -66,9 +70,9 @@ export class AddProductComponent implements OnInit {
 
   public onSubmit() {
    
-    if ( this.registerForm.invalid )
+    if ( this.addProductForm.invalid )
       return alert('Please review your data .'); 
-    const product : productType = this.registerForm.value;
+    const product : productType = this.addProductForm.value;
     product.img = this.image;
     swal.fire({
       title: 'Are you sure?',

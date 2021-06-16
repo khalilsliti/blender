@@ -1,7 +1,7 @@
 import { productType } from "./product.model";
 import { Store } from "./Store.model";
 
-export interface Order {
+export interface OrderOwner {
     totalPrice : number , 
     accepted : boolean , 
     product : productType , 

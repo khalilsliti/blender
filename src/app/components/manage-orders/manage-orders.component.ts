@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { OrderService } from 'src/app/services/httpClients/order.service';
-import { Order } from 'src/app/Models/order.model';
+import { OrderOwner } from 'src/app/Models/order.model';
 
 @Component({
   selector: 'app-manage-orders',
@@ -10,7 +10,7 @@ import { Order } from 'src/app/Models/order.model';
 })
 export class ManageOrdersComponent implements OnInit {
    public pageNumber : number ; 
-   public orders : Order[] ; 
+   public orders : OrderOwner[] ; 
    public notEnough : boolean ; 
    public spinner : boolean; 
   constructor( private activatedRoute:ActivatedRoute,private http : OrderService , private router : Router ) { }
@@ -19,8 +19,8 @@ export class ManageOrdersComponent implements OnInit {
    this.activatedRoute.params.subscribe( params => 
     { 
          this.pageNumber = params['pageNumber'] ;  
-       this.http.getOrders(this.pageNumber).subscribe ( (response : Order[]) =>
-      {
+       this.http.getOrders(this.pageNumber).subscribe ( (response : OrderOwner[]) =>
+      { 
            this.orders = response ;  
            if (this.orders.length == 0 ) 
             {

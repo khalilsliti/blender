@@ -1,6 +1,6 @@
 import { productType } from "./product.model";
 export class Store {
-         _id : string ; 
+         _id? : string ; 
          address :  {
                     city : string , 
                     governorate : string , 
@@ -13,7 +13,7 @@ export class Store {
           imgPath : string ;  
           keywords : [] ; 
           name : string ; 
-          owner : string[] ;   /* for the moment */
-          products : productType[] ; 
-          img : File ; 
+          owner? : string[] ;   /* for the moment */
+          products? : productType[] ; 
+          img? : File ; 
 }

@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Order } from 'src/app/Models/order.model';
+import { OrderOwner } from 'src/app/Models/order.model';
 import { OrderService } from 'src/app/services/httpClients/order.service';
 import swal from 'sweetalert2';
 
@@ -9,7 +9,7 @@ import swal from 'sweetalert2';
   styleUrls: ['./order-component.component.scss']
 })
 export class OrderComponentComponent implements OnInit {
- @Input() order : Order ; 
+ @Input() order : OrderOwner ; 
  public URL : String = "http://127.0.0.1:3000/" ;  
  public SRC : string ;
  public status : string ;  

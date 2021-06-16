@@ -3,8 +3,6 @@ import swal from 'sweetalert2';
 import { imageValidator } from 'src/app/validators/image-validator';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { StoreService } from 'src/app/services/httpClients/store.service';
-import { governorateValidator } from 'src/app/validators/governorate-validator';
-import { User } from 'src/app/models/User';
 import { Store } from 'src/app/Models/Store.model';
 import { HttpResponse } from '@angular/common/http';
 import { governorateValidatorUpdate } from 'src/app/validators/governorate-validator-update';
