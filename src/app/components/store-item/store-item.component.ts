@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
-import { Store } from 'src/app/Models/Store.model';
+import { Store } from 'src/app/Models/store.model';
 
 @Component({
   selector: 'app-store-item',
