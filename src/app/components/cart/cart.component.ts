@@ -62,9 +62,27 @@ export class CartComponent implements OnInit {
 }
 
 public resetCart(){
-  this.orders = [];
-  this.totalPrice = 0;
-  this.updateSessionStorage();
+
+  Swal.fire({
+    title: 'Are you sure?',
+    text: "You are about to undo the orders .",
+   
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Yes , undo '
+  }).then((result) => {
+    if (result.isConfirmed) {
+        this.orders = [];
+        this.totalPrice = 0;
+        this.updateSessionStorage();
+        }
+      ;
+    }
+  )
+
+
 }
 
 public shop() {
