@@ -62,6 +62,12 @@ export class CartComponent implements OnInit {
 }
 
 public resetCart(){
+  this.orders = [];
+  this.totalPrice = 0;
+  this.updateSessionStorage();
+}
+
+public confirm(){
 
   Swal.fire({
     title: 'Are you sure?',
@@ -74,9 +80,7 @@ public resetCart(){
     confirmButtonText: 'Yes , undo '
   }).then((result) => {
     if (result.isConfirmed) {
-        this.orders = [];
-        this.totalPrice = 0;
-        this.updateSessionStorage();
+        this.resetCart();
         }
       ;
     }
